@@ -37,9 +37,14 @@ const getStaticProps: GetStaticProps = async () => {
     const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=61')
     const jsonData: TimeSeriesType = await res.json()
     const data: PropsType = {
-        cases: getNewCasesList(jsonData.cases),
-        deaths: getNewCasesList(jsonData.deaths)
+        cases: [],
+        deaths: []
     }
+    if (data) {
+        data.cases = getNewCasesList(jsonData.cases)
+        data.deaths = getNewCasesList(jsonData.deaths)
+    }
+    
 
     return { props: { data } }
 }
