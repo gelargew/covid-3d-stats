@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next"
+import { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next"
 import { useEffect } from "react"
 import BarChart from "../../components/BarChart"
 
@@ -22,7 +22,7 @@ interface PropsType {
     deaths : NewCasesType[]
 }
 
-export default function HistoricalMonthly({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function HistoricalMonthly({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
     console.log(data.cases)
     return (
@@ -33,7 +33,7 @@ export default function HistoricalMonthly({ data }: InferGetStaticPropsType<type
 }
 
 
-const getStaticProps: GetStaticProps = async () => {
+const getServerSideProps: GetServerSideProps = async () => {
     const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=61')
     const jsonData: TimeSeriesType = await res.json()
     const data: PropsType = {
@@ -69,4 +69,4 @@ const getNewCasesList = (data: CasesType) => {
 }
 
 
-export {getStaticProps}
+export {getServerSideProps}

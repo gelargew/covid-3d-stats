@@ -8,7 +8,6 @@ interface PropsType {
 }
 
 export default function BarChart({ data }: { data: PropsType[]}) {
-    data.forEach(d => console.log(d.count))
     
     return (
         <Canvas>
