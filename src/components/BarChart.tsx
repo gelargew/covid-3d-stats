@@ -1,4 +1,4 @@
-import { Box, OrbitControls } from "@react-three/drei"
+import { Box, MapControls, OrbitControls, SpotLight } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { Suspense } from "react"
 
@@ -8,18 +8,21 @@ interface PropsType {
 }
 
 export default function BarChart({ data }: { data: PropsType[]}) {
+    data.forEach(d => console.log(d.count))
     
     return (
         <Canvas>
-            <ambientLight />
             <OrbitControls />
+            <SpotLight position={[-5, 5, 5]} power={10} distance={15} angle={0.9} />
             <Suspense fallback={null}>
                 {data.map((n, i) => 
                 <Box 
                 key={i} 
-                args={[0.2, (n.count/data[0].count)**2, 0.2]} 
-                position={[i/4 - (data.length / 2 /4), 0, 0]} 
-                />)}
+                args={[0.05, n.count/1000000, 1]} 
+                position={[i/18 - (data.length / 2 /18), 0, 0]} 
+                >
+                    <meshLambertMaterial />
+                </Box>)}
             </Suspense>
             
         </Canvas>
