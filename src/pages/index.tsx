@@ -1,29 +1,71 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import styles from '../styles/Home.module.css'
+import { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next"
+import { useEffect } from "react"
+import BarChart from '../components/BarChart'
 
-const Home: NextPage = () => {
-  const router = useRouter()
-  useEffect(() => {
-    router.push('/timeseries/lastmonth')
-  }, [])
 
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>3d Covid</title>
-        <meta name="description" content="3d Covid Chart" />
-        <link rel="icon" href="" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1>COVID 3d</h1>
-      </main>
-    </div>
-  )
+interface CasesType {
+    [key: string]: number
 }
 
-export default Home
+interface TimeSeriesType {
+    cases: CasesType,
+    deaths: CasesType,
+    recovered: CasesType
+}
+
+interface NewCasesType {
+    title: string,
+    count: number
+}
+
+interface PropsType {
+    cases: NewCasesType[],
+    deaths : NewCasesType[]
+}
+
+export default function Home({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
+
+    return (
+        <main>
+            <BarChart data={data.cases} />
+        </main>
+    )
+}
+
+
+const getStaticProps: GetStaticProps = async () => {
+    const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=61')
+    const jsonData: TimeSeriesType = await res.json()
+    const data: PropsType = {
+        cases: getNewCasesList(jsonData.cases),
+        deaths: getNewCasesList(jsonData.deaths)
+    }
+
+
+    return { props: { data } }
+}
+
+interface getNewCasesType extends NewCasesType {
+    totalCount: number
+}
+
+const getNewCasesList = (cases: CasesType) => {
+    const data = cases
+    const newCases = Object.keys(data).reduce((prev, title) => {
+        let count = data[title]     
+        const lastItem = prev.at(-1)
+        if (lastItem) {
+            count -= lastItem.totalCount
+        }
+        return [...prev, { title, count,  totalCount: data[title] }]
+    }, [] as getNewCasesType[])
+    newCases.shift()
+
+    return newCases
+}
+
+
+export {getStaticProps}
+
+
