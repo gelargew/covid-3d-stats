@@ -25,10 +25,10 @@ interface PropsType {
 }
 
 export default function Home({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
-
+  console.log(data)
     return (
         <main>
-            <BarChart data={data.cases} />
+            
         </main>
     )
 }
@@ -38,12 +38,12 @@ const getStaticProps: GetStaticProps = async () => {
     const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=61')
     const jsonData: TimeSeriesType = await res.json()
     const data: PropsType = {
-        cases: getNewCasesList(jsonData.cases),
-        deaths: getNewCasesList(jsonData.deaths)
+        cases: [],
+        deaths: []
     }
 
 
-    return { props: { data } }
+    return { props: { data: jsonData } }
 }
 
 interface getNewCasesType extends NewCasesType {
