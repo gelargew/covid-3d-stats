@@ -25,16 +25,12 @@ interface PropsType {
 }
 
 export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
-
-    const data: PropsType = {
-        cases: getNewCasesList(jsonData.cases),
-        deaths: getNewCasesList(jsonData.deaths)
-    }
-    console.log(data)
+    console.log(jsonData, typeof jsonData)
+    const {cases, deaths} = jsonData
+    console.log(cases, deaths)
 
     return (
         <main>
-            <BarChart data={data.cases} />
         </main>
     )
 }
