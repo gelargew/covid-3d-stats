@@ -5,6 +5,8 @@ interface getNewCasesType extends NewCasesType {
 }
 
 const getNewCasesArray = (cases: CasesType) => {
+    console.log(cases, 'GETEMAWEAWE ASDASIODJASDOASIDJAWOIEJAWIOEJAWIJODSIJ')
+    if (!cases) return [] as getNewCasesType[]
     const data = cases
     const newCases = Object.keys(data).reduce((prev, title) => {
         let count = data[title]     
