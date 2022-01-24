@@ -34,7 +34,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
 
     return (
         <main>
-            {data.cases[0].count}
+            <BarChart data={data.cases} />
         </main>
     )
 }
