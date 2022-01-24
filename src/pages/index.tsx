@@ -1,37 +1,20 @@
 import Head from 'next/head'
 import { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import BarChart from '../components/BarChart'
+import { CasesType, NewCasesType, TimeSeriesType } from '../types'
+import TimeSeriesChart from '../components/TimeSeriesChart'
 
 
-interface CasesType {
-    [key: string]: number
-}
 
-interface TimeSeriesType {
-    cases: CasesType,
-    deaths: CasesType,
-    recovered: CasesType
-}
-
-interface NewCasesType {
-    title: string,
-    count: number
-}
-
-interface PropsType {
-    cases: NewCasesType[],
-    deaths : NewCasesType[]
-}
 
 export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
-    console.log(jsonData, typeof jsonData)
-    const {cases, deaths} = jsonData
-    console.log(cases, deaths)
+    const {cases, deaths}: TimeSeriesType = jsonData
+
 
     return (
         <main>
-            {cases && <BarChart data={getNewCasesList(cases)} />}
+            <TimeSeriesChart data={cases} />
         </main>
     )
 }
@@ -40,33 +23,11 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
 const getStaticProps: GetStaticProps = async () => {
     const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=61')
     const jsonData: TimeSeriesType = await res.json()
-    const data: PropsType = {
-        cases: [],
-        deaths: []
-    }
-
 
     return { props: { jsonData } }
 }
 
-interface getNewCasesType extends NewCasesType {
-    totalCount: number
-}
 
-const getNewCasesList = (cases: CasesType) => {
-    const data = cases
-    const newCases = Object.keys(data).reduce((prev, title) => {
-        let count = data[title]     
-        const lastItem = prev.at(-1)
-        if (lastItem) {
-            count -= lastItem.totalCount
-        }
-        return [...prev, { title, count,  totalCount: data[title] }]
-    }, [] as getNewCasesType[])
-    newCases.shift()
-
-    return newCases
-}
 
 
 export {getStaticProps}
