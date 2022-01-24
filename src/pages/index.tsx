@@ -24,11 +24,17 @@ interface PropsType {
     deaths : NewCasesType[]
 }
 
-export default function Home({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(data)
+export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
+
+    const data: PropsType = {
+        cases: getNewCasesList(jsonData.cases),
+        deaths: getNewCasesList(jsonData.deaths)
+    }
+    console.log(data)
+
     return (
         <main>
-            
+            {data.cases[0].count}
         </main>
     )
 }
@@ -43,7 +49,7 @@ const getStaticProps: GetStaticProps = async () => {
     }
 
 
-    return { props: { data: jsonData } }
+    return { props: { jsonData } }
 }
 
 interface getNewCasesType extends NewCasesType {
