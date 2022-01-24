@@ -10,10 +10,12 @@ const getNewCasesArray = (cases: CasesType) => {
     const data = cases
     const newCases = Object.keys(data).reduce((prev, title) => {
         let count = data[title]     
-        const lastItem = prev.at(-1)
-        if (lastItem) {
+        if (prev.length > 0) {
+            const lastItem = prev.at(-1)
+            if (lastItem)
             count -= lastItem.totalCount
         }
+        
         return [...prev, { title, count,  totalCount: data[title] }]
     }, [] as getNewCasesType[])
     newCases.shift()
