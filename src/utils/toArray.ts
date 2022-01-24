@@ -5,18 +5,14 @@ interface getNewCasesType extends NewCasesType {
 }
 
 const getNewCasesArray = (cases: CasesType) => {
-    const data = cases
-    const newCases = Object.keys(data).reduce((prevArray, title) => {
-        console.log(prevArray, 'AKEADIASJDOASIJD ASDJAOWIDJAOIDJ')
-        let count = data[title]     
-        if (prevArray.length > 0) {
-            const lastItem = prevArray.at(-1)
-            if (lastItem)
-            count -= lastItem.totalCount
-        }
-        
-        return [...prevArray, { title, count,  totalCount: data[title] }]
-    }, [] as getNewCasesType[])
+    const keys = Object.keys(cases)
+    const newCases: getNewCasesType[] = []
+    let lastCount = 0
+    for (const title of keys) {
+        let count = cases[title] - lastCount
+        lastCount = cases[title]
+        newCases.push({ title, count, totalCount: lastCount })
+    }
     newCases.shift()
 
     return newCases
