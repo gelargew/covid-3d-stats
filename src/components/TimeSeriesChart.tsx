@@ -1,3 +1,4 @@
+import { Canvas } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import { CasesType } from "../types";
 import { getNewCasesArray } from "../utils/toArray";
@@ -8,7 +9,11 @@ export default function TimeSeriesChart({ data }: { data: CasesType }) {
     if (!data) return <h1>asdsad</h1>
     else {
         const a = getNewCasesArray(data)
-        return <BarChart data={a} />
+        return (
+            <Canvas>
+                <BarChart data={a} />
+            </Canvas>
+        )
     }
 
 }
