@@ -26,6 +26,9 @@ interface Params extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
     const params = context.params!
     const { country, days } = params
+    const res = await fetch(`https://disease.sh/v3/covid-19/historical/all?lastdays=61`)
+    const jsonData = await res.json()
+
     return {
         props: { country, days }
     }
@@ -40,6 +43,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
             { params: { country, days: '180' }}
         ])
     }
+    const pathe = { params: { country: 'USA', days: '30' }}
 
-    return { paths, fallback: true }
+    return { paths: [pathe], fallback: true }
 }

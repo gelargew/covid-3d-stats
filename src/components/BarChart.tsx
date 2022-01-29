@@ -1,5 +1,5 @@
 import { Box, Instance, Instances, MapControls, MeshReflectorMaterial, OrbitControls, Plane, SpotLight, TrackballControls } from "@react-three/drei"
-import { Canvas, Props, useFrame } from "@react-three/fiber"
+import { Canvas, Props, useFrame, useThree } from "@react-three/fiber"
 import { InstanceProps } from "@react-three/fiber/dist/declarations/src/core/renderer"
 
 import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react"
@@ -16,14 +16,19 @@ const color = new THREE.Color()
 export default function BarChart({ data }: { data: PropsType[]}) {
     const [height, setHeight] = useState(100000)
     const geometry = new THREE.BoxGeometry()
+    const {camera} = useThree()
     geometry.translate(0, 0.5, 0)
     const handleClick = () => {
         setHeight(height < 200000 ? 200000 : 100000)
         console.log('click')
     }
 
+    useEffect(() => {
+        camera.position.set(1, 5, 40)
+    },[])
+
     return (
-        <group>
+        <group position={[0, -15, 0]}>
             <OrbitControls />
             <ambientLight />
             <Suspense fallback={null}>
