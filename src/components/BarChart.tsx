@@ -2,7 +2,7 @@ import { Box, Instance, Instances, MapControls, MeshReflectorMaterial, OrbitCont
 import { Canvas, Props, useFrame, useThree } from "@react-three/fiber"
 import { InstanceProps } from "@react-three/fiber/dist/declarations/src/core/renderer"
 
-import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react"
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import * as THREE from 'three'
 import { Vector3 } from "three"
 
@@ -15,7 +15,8 @@ const color = new THREE.Color()
 
 export default function BarChart({ data }: { data: PropsType[]}) {
     const [height, setHeight] = useState(100000)
-    const geometry = new THREE.BoxGeometry()
+    const width = useMemo(() => 50/data.length, [])
+    const geometry = new THREE.BoxGeometry(width, 1, width)
     const {camera} = useThree()
     geometry.translate(0, 0.5, 0)
     const handleClick = () => {
@@ -29,14 +30,14 @@ export default function BarChart({ data }: { data: PropsType[]}) {
 
     return (
         <group position={[0, -15, 0]}>
-            <OrbitControls />
+            <OrbitControls mouseButtons={{ LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.ROTATE}} />
             <ambientLight />
             <Suspense fallback={null}>
                 <Instances geometry={geometry} limit={100000} range={100000} onClick={handleClick} >
                     <meshStandardMaterial />
                     {data.map((d, i) => 
                     <Bar key={i} 
-                    position={[(i - data.length/2)*1.1, 0, 0]} 
+                    position={[(i - data.length/2)*1.1*width, 0, 0]} 
                     data={d}
                     height={height}
                     />)}
