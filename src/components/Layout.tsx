@@ -6,15 +6,13 @@ import { fetchSummary } from "../utils/fetch"
 
 export default function Layout() {
     const [data, setData] = useAtom(allCountries)
-    useEffect(() => {
-        const updateData = async () => {
-            const fetchData = await fetchSummary()
-            setData(fetchData)
-        }
-        if (!data) {
-            updateData()
-        }
-    }, [])
+    const updateData = async () => {
+        const fetchData = await fetchSummary()
+        setData(fetchData)
+    }
+    if (!data) {
+        updateData()
+    }
 
     return (
         <nav>
