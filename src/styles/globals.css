@@ -26,3 +26,17 @@ a {
 main {
   height: 100%;
 }
+
+nav {
+  background: black;
+  z-index: 10;
+  position: fixed;
+  height: 100vh;
+  overflow: auto;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+}
