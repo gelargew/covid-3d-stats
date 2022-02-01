@@ -5,6 +5,7 @@ import { allCountries, allCountriesProps } from "../storage"
 import { fetchSummary } from "../utils/fetch"
 
 export default function Layout({ data }: { data?: allCountriesProps[]}) {
+    console.log(data)
 
     return (
         <nav>

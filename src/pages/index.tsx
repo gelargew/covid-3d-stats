@@ -29,7 +29,7 @@ export default function Home({ jsonData, summary }: InferGetStaticPropsType<type
 
 
 const getStaticProps: GetStaticProps = async () => {
-    const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=360')
+    const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=15')
     const jsonData: TimeSeriesType = await res.json()
     const summary = await fetchSummary()
 
