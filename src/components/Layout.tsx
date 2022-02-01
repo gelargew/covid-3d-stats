@@ -4,9 +4,7 @@ import { useEffect, useLayoutEffect } from "react"
 import { allCountries, allCountriesProps } from "../storage"
 import { fetchSummary } from "../utils/fetch"
 
-export default function Layout() {
-    const [data, setData] = useAtom(allCountries)
-
+export default function Layout({ data }: { data?: allCountriesProps[]}) {
 
     return (
         <nav>

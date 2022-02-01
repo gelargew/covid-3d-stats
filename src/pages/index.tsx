@@ -14,13 +14,11 @@ import { allCountries } from '../storage'
 
 export default function Home({ jsonData, summary }: InferGetStaticPropsType<typeof getStaticProps>) {
     const {cases, deaths}: TimeSeriesType = jsonData
-    const [, setData] = useAtom(allCountries)
-    setData(summary)
 
 
     return (
         <>
-            <Layout />
+            <Layout data={summary} />
             <main>
                 <TimeSeriesChart data={cases} />
             </main>
