@@ -1,28 +1,50 @@
-import Head from 'next/head'
 import { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next"
 import { useEffect, useState } from "react"
 import BarChart from '../components/BarChart'
 import { CasesType, NewCasesType, TimeSeriesType } from '../types'
-import TimeSeriesChart from '../components/TimeSeriesChart'
-import Layout from '../components/Layout'
-import { fetchSummary } from '../utils/fetch'
-import { useAtom } from 'jotai'
-import { allCountries } from '../storage'
+import { getNewCasesArray } from '../utils/toArray'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import { Reflector } from "../components/Reflector"
+import * as THREE from 'three'
 
 
 
 
 export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
-    const {cases, deaths}: TimeSeriesType = jsonData
-
+    const data: TimeSeriesType = jsonData
 
     return (
         <>
             <main>
-                <TimeSeriesChart data={cases} />
+                <Canvas>
+
+                    <ambientLight />
+                    <Objects data={data} />
+                </Canvas>
             </main>
         </>
         
+    )
+}
+
+const Objects = ({ data }: { data: TimeSeriesType}) => {
+    const casesData = getNewCasesArray(data.cases)
+    const deathsData = getNewCasesArray(data.deaths)
+    const {camera} = useThree()
+    const q = new THREE.Quaternion(100, 55, 100, 5)
+
+    useFrame((state, dt) => {
+        state.camera.quaternion.slerp(q, dt)
+    })
+
+
+    return (
+        <>
+            <BarChart data={casesData} />
+            <BarChart data={deathsData} position={[100, 0, 0]}/>
+            <Reflector />
+        </>
     )
 }
 

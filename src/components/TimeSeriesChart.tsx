@@ -5,13 +5,13 @@ import { getNewCasesArray } from "../utils/toArray";
 import BarChart from "./BarChart";
 
 export default function TimeSeriesChart({ data }: { data: CasesType }) {
-    const a = getNewCasesArray
     if (!data) return <h1>asdsad</h1>
     else {
-        const a = getNewCasesArray(data)
+        const d = getNewCasesArray(data)
+        
         return (
             <Canvas>
-                <BarChart data={a} />
+                <BarChart data={d} />
             </Canvas>
         )
     }
