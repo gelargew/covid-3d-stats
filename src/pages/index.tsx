@@ -28,7 +28,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
 
 
 const getStaticProps: GetStaticProps = async () => {
-    const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=15')
+    const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=360')
     const jsonData: TimeSeriesType = await res.json()
 
     return { props: { jsonData }, revalidate: 60*60*24 }
