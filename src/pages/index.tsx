@@ -12,13 +12,12 @@ import { allCountries } from '../storage'
 
 
 
-export default function Home({ jsonData, summary }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
     const {cases, deaths}: TimeSeriesType = jsonData
 
 
     return (
         <>
-            <Layout data={summary} />
             <main>
                 <TimeSeriesChart data={cases} />
             </main>
@@ -31,10 +30,8 @@ export default function Home({ jsonData, summary }: InferGetStaticPropsType<type
 const getStaticProps: GetStaticProps = async () => {
     const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=15')
     const jsonData: TimeSeriesType = await res.json()
-    const summary = await fetchSummary()
 
-
-    return { props: { jsonData, summary }, revalidate: 60*60*24 }
+    return { props: { jsonData }, revalidate: 60*60*24 }
 }
 
 

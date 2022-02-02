@@ -36,13 +36,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
     const paths = []
-    for (const country of countries) {
-        paths.push(...[
-            { params: { country, days: '30' }},
-            { params: { country, days: '90' }},
-            { params: { country, days: '180' }}
-        ])
-    }
+
     const pathe = { params: { country: 'USA', days: '30' }}
 
     return { paths: [pathe], fallback: true }

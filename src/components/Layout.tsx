@@ -3,15 +3,19 @@ import Link from "next/link"
 import { useEffect, useLayoutEffect } from "react"
 import { allCountries, allCountriesProps } from "../storage"
 import { fetchSummary } from "../utils/fetch"
+import countries from '../countries.json'
 
 export default function Layout({ data }: { data?: allCountriesProps[]}) {
-    console.log(data)
+    useEffect(() => {
+        console.log('helo')
+    }, [])
 
     return (
         <nav>
-            {data?.map(country => 
-                <Link href={`/${country.country}`} key={country.country}>
-                    {country.country}
+            {Object.keys(countries).map(country => 
+            // @ts-ignore
+                <Link href={`/${countries[country].slug}`} key={country}>
+                    {country}
                 </Link>)}
         </nav>
     )
