@@ -29,7 +29,7 @@ export default function BarChart({ name='sd', data, position=[0,0,0], rotation=[
 
 
     return (
-        <group scale={0.1} position={position} rotation={rotation}  >          
+        <group scale={0.2} position={position} rotation={rotation}  >          
             <Suspense fallback={null}>
                 <Instances geometry={geometry} limit={100000} range={100000} name={name}  >
                     <meshLambertMaterial  />
@@ -48,12 +48,10 @@ export default function BarChart({ name='sd', data, position=[0,0,0], rotation=[
 const Bar = ({data, height, ...props}: any) => {
     const ref: any = useRef()
     const yScale = data.count/height
-    const zScale = data.count/height/10
     const [hovered, setHovered] = useState(false)
 
     useFrame((st, dt) => {
         ref.current.scale.y = THREE.MathUtils.damp(ref.current.scale.y, yScale, 0.01, 5)
-        ref.current.scale.z = THREE.MathUtils.damp(ref.current.scale.z, zScale, 0.01, 5)
         ref.current.color.lerp(color.set(hovered ? 'red' : 'blue'), hovered ? 1 : 0.1)
     })
 
