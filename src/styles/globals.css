@@ -25,6 +25,7 @@ a {
 }
 
 main {
+  position: relative;
   height: 100%;
   flex: 1;
 }
@@ -41,4 +42,13 @@ nav {
   place-items: center;
   justify-content: flex-start;
   gap: 0.4rem;
+}
+
+
+button#back {
+  position: absolute;
+  z-index: 2;
+  left: 2rem;
+  top: 2rem;
+
 }
