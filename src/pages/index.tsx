@@ -10,6 +10,7 @@ import * as THREE from 'three'
 import { useRouter } from "next/router"
 
 import historical from '../historical.json'
+import { useControls } from "leva"
 
 
 const GOLDENRATIO = 1.61803398875
@@ -27,7 +28,9 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
         <>
             <main>
                 <Canvas>
-                    <ambientLight />
+                    <pointLight position={[20, 40, 20]} power={10} />
+                    <pointLight position={[20, 40, -20]} power={5} />
+                    <pointLight position={[-10, 40, 10]} power={5} />
                     <Objects data={data} q={q} p={p} />
                     <Reflector />
                 </Canvas>
@@ -43,6 +46,14 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
     const casesData = getNewCasesArray(data.cases)
     const deathsData = getNewCasesArray(data.deaths)
     const ref = useRef<THREE.Group>(null!)
+    const height = Math.max(...casesData.map(d => d.count))/50
+    const {zoom} = useControls({
+        zoom: {
+            value: 1,
+            min: 0.5,
+            max: 4
+        }
+    })
 
     
     const handleClick = (e: ThreeEvent<MouseEvent>) => {
@@ -62,13 +73,26 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
     useFrame((state, delta) => {
         state.camera.quaternion.slerp(q, THREE.MathUtils.damp(0, 1, 2, delta))
         state.camera.position.lerp(p, THREE.MathUtils.damp(0, 1, 3, delta))
+        state.camera.zoom = THREE.MathUtils.damp(state.camera.zoom, zoom, 3, delta)
+        state.camera.updateProjectionMatrix()
     })
 
 
     return (
-        <group ref={ref} onClick={handleClick}>
-            <BarChart name='cases' data={casesData} position={[-7, 0, 5]} rotation={[0, -Math.PI/10, 0]} />
-            <BarChart name='deaths' data={deathsData} position={[7, 0, 5]} rotation={[0, Math.PI/10, 0]} />
+        <group ref={ref} onClick={handleClick} >
+            <BarChart 
+            name='cases' 
+            data={casesData} 
+            position={[-7, 0, 5]} 
+            rotation={[0, -Math.PI/10, 0]} 
+            color='orange' />
+            <BarChart 
+            name='deaths' 
+            data={deathsData} 
+            position={[7, 0, 5]} 
+            rotation={[0, Math.PI/10, 0]}
+            height={height}
+            />
         </group>
     )
 }
