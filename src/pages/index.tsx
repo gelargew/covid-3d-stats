@@ -4,7 +4,7 @@ import BarChart from '../components/BarChart'
 import { CasesType, NewCasesType, TimeSeriesType } from '../types'
 import { getNewCasesArray } from '../utils/toArray'
 import { Canvas, ThreeEvent, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { MapControls, OrbitControls } from '@react-three/drei'
 import { Reflector } from "../components/Reflector"
 import * as THREE from 'three'
 import { useRouter } from "next/router"
@@ -28,9 +28,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
         <>
             <main>
                 <Canvas>
-                    <pointLight position={[20, 40, 20]} power={10} />
-                    <pointLight position={[20, 40, -20]} power={5} />
-                    <pointLight position={[-10, 40, 10]} power={5} />
+                    <ambientLight />
                     <Objects data={data} q={q} p={p} />
                     <Reflector />
                 </Canvas>
@@ -54,15 +52,26 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
             max: 4
         }
     })
+    const clicked = useRef<THREE.Object3D>()
 
     
     const handleClick = (e: ThreeEvent<MouseEvent>) => {
         e.stopPropagation()
-        e.object.parent?.updateWorldMatrix(true, true)
-        e.object.parent?.localToWorld(p.set(0, 20, 45))
-        e.object.parent?.getWorldQuaternion(q)
-        
-        console.log(q)
+        if (e.object.parent) {
+            if (clicked.current === e.object.parent) {
+                e.object.updateWorldMatrix(true, true)
+                e.object.localToWorld(p.set(0, 0.4, 45))
+                e.object.getWorldQuaternion(q)       
+                console.log(e.object.position)            
+            }
+            else {
+                clicked.current = e.object.parent
+                clicked.current.updateWorldMatrix(true, true)
+                clicked.current.localToWorld(p.set(0, 20, 45))
+                clicked.current.getWorldQuaternion(q)
+            }
+
+        }
     }
 
     useEffect(() => {
@@ -72,9 +81,9 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
 
     useFrame((state, delta) => {
         state.camera.quaternion.slerp(q, THREE.MathUtils.damp(0, 1, 2, delta))
-        state.camera.position.lerp(p, THREE.MathUtils.damp(0, 1, 3, delta))
-        state.camera.zoom = THREE.MathUtils.damp(state.camera.zoom, zoom, 3, delta)
-        state.camera.updateProjectionMatrix()
+        state.camera.position.lerp(p, THREE.MathUtils.damp(0, 1, 4, delta))
+        
+
     })
 
 
@@ -91,7 +100,7 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
             data={deathsData} 
             position={[7, 0, 5]} 
             rotation={[0, Math.PI/10, 0]}
-            height={height}
+            color='#C66651'
             />
         </group>
     )

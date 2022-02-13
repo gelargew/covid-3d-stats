@@ -1,4 +1,4 @@
-import { Text, Instance, Instances } from "@react-three/drei"
+import { Text, Instance, Instances, Box } from "@react-three/drei"
 import { Canvas, Props, ThreeEvent, useFrame, useThree } from "@react-three/fiber"
 
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
@@ -20,6 +20,16 @@ interface chartProps {
 
 const color = new THREE.Color()
 
+const truncateCount = (str: string) => {
+    console.log(str.length)
+    if (str.length > 7) {
+        return `${str.slice(0, -6)}m`
+    }
+    else if (str.length > 4) {      
+        return `${str.slice(0, -3)}k`
+    }
+    return str
+}
 
 export default function BarChart({ 
     name='', 
@@ -27,15 +37,33 @@ export default function BarChart({
     color='white',
     position=[0,0,0], 
     rotation=[0,0,0],
-    height=undefined
+    height
 }: chartProps) {
     const width = useMemo(() => 50/data.length, [])
     const geometry = new THREE.BoxGeometry(width, 1, width)
     geometry.translate(0, 0.5, -0.5)
-
     if (!height) height = Math.max(...data.map(d => d.count))/50
+    const layoutX = (-2 - data.length/2)*1.1*width
+    const line = useRef<THREE.Group>()
+    const lineVec3 = new THREE.Vector3(10, 30, 0)
+    const text = useMemo(() => {
+        const a = Math.ceil(Math.max(...data.map(d => d.count)))
+        const b = Math.ceil(a *3/5)
+        const c = Math.ceil(a /5)
+
+        return [
+            truncateCount(a.toString()), 
+            truncateCount(b.toString()), 
+            truncateCount(c.toString())
+        ]
+    }, [data])
 
 
+
+
+    useFrame((state, dt) => {
+
+    })
 
     return (
         <group scale={0.2} position={position} rotation={rotation}  >          
@@ -50,6 +78,33 @@ export default function BarChart({
                     color={color}
                     />)}
                 </Instances>
+
+                <group position={[layoutX, 0, 0]} >
+                    <mesh geometry={geometry} scale={[0.1, 52, 0.1]} />
+                    <group ref={line} position={[-0.5, 50, 0]}>
+                        <mesh geometry={geometry}  scale={[2, 0.1, 0.1]} />
+                        <Text
+                        fontSize={1}
+                        position={[-3, 0, 0]}
+                        >{text[0]}</Text>
+                    </group>
+                    <group ref={line} position={[-0.5, 30, 0]}>
+                        <mesh geometry={geometry}  scale={[2, 0.1, 0.1]} />
+                        <Text
+                        fontSize={1}
+                        position={[-3, 0, 0]}
+                        >{text[1]}</Text>
+                    </group>
+                    <group ref={line} position={[-0.5, 10, 0]}>
+                        <mesh geometry={geometry}  scale={[2, 0.1, 0.1]} />
+                        <Text
+                        fontSize={1}
+                        position={[-3, 0, 0]}
+                        >{text[2]}</Text>
+                    </group>
+    
+                </group>
+
                 <Text
                 position={[0, 0.1, 8]}
                 fontSize={10}
@@ -80,7 +135,7 @@ const Bar = ({data, height, ...props}: any) => {
 
     useFrame((st, dt) => {
         ref.current.scale.y = THREE.MathUtils.damp(ref.current.scale.y, yScale, 0.01, 5)
-        ref.current.color.lerp(color.set(hovered ? 'red' : props.color), hovered ? 1 : 0.1)
+        ref.current.color.lerp(color.set(hovered ? '#4CADB0' : props.color), hovered ? 1 : 0.1)
     })
 
 
@@ -89,6 +144,9 @@ const Bar = ({data, height, ...props}: any) => {
         onPointerOver={() => setHovered(true)}
         onPointerLeave={() => setHovered(false)} 
         name={data.title}
+        userData={{
+            data
+        }}
         {...props} />
     )
 }
