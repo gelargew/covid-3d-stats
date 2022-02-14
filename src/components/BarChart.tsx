@@ -42,14 +42,14 @@ export default function BarChart({
     const width = useMemo(() => 50/data.length, [])
     const geometry = new THREE.BoxGeometry(width, 1, width)
     geometry.translate(0, 0.5, -0.5)
-    if (!height) height = Math.max(...data.map(d => d.count))/50
+    if (!height) height = Math.max(...data.map(d => d.count))/30
     const layoutX = (-2 - data.length/2)*1.1*width
     const line = useRef<THREE.Group>()
     const lineVec3 = new THREE.Vector3(10, 30, 0)
     const text = useMemo(() => {
         const a = Math.ceil(Math.max(...data.map(d => d.count)))
-        const b = Math.ceil(a *3/5)
-        const c = Math.ceil(a /5)
+        const b = Math.ceil(a *2/3)
+        const c = Math.ceil(a /3)
 
         return [
             truncateCount(a.toString()), 
@@ -80,15 +80,15 @@ export default function BarChart({
                 </Instances>
 
                 <group position={[layoutX, 0, 0]} >
-                    <mesh geometry={geometry} scale={[0.1, 52, 0.1]} />
-                    <group ref={line} position={[-0.5, 50, 0]}>
+                    <mesh geometry={geometry} scale={[0.1, 32, 0.1]} />
+                    <group ref={line} position={[-0.5, 30, 0]}>
                         <mesh geometry={geometry}  scale={[2, 0.1, 0.1]} />
                         <Text
                         fontSize={1}
                         position={[-3, 0, 0]}
                         >{text[0]}</Text>
                     </group>
-                    <group ref={line} position={[-0.5, 30, 0]}>
+                    <group ref={line} position={[-0.5, 20, 0]}>
                         <mesh geometry={geometry}  scale={[2, 0.1, 0.1]} />
                         <Text
                         fontSize={1}

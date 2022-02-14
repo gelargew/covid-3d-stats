@@ -4,10 +4,10 @@ import BarChart from '../components/BarChart'
 import { CasesType, NewCasesType, TimeSeriesType } from '../types'
 import { getNewCasesArray } from '../utils/toArray'
 import { Canvas, ThreeEvent, useFrame, useThree } from '@react-three/fiber'
-import { MapControls, OrbitControls } from '@react-three/drei'
+import { Html, MapControls, OrbitControls } from '@react-three/drei'
 import { Reflector } from "../components/Reflector"
 import * as THREE from 'three'
-import { useRouter } from "next/router"
+import '../styles/index.module.css'
 
 import historical from '../historical.json'
 import { useControls } from "leva"
@@ -17,6 +17,8 @@ const GOLDENRATIO = 1.61803398875
 
 export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
     const data: TimeSeriesType = jsonData
+    const casesData = getNewCasesArray(data.cases)
+    const deathsData = getNewCasesArray(data.deaths)
     const q = new THREE.Quaternion(0, 0, 0)
     const p = new THREE.Vector3(0, 10, 30)
     const handleBack = () => {
@@ -27,11 +29,17 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
     return (
         <>
             <main>
-                <Canvas>
-                    <ambientLight />
-                    <Objects data={data} q={q} p={p} />
-                    <Reflector />
-                </Canvas>
+                <h1>COVID-19 PANDEMIC STATISTICS</h1>
+                <h2>global daily time series data</h2>
+                <p><small>last updated: {casesData.at(-1)?.title}</small></p>
+                <section>
+                    <Canvas>
+                        <ambientLight />
+                        <Objects data={data} q={q} p={p} />
+                        <Reflector />
+                    </Canvas>
+                </section>
+
                 <button id='back' onClick={handleBack} >BACK</button>
             </main>
         </>
@@ -44,16 +52,7 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
     const casesData = getNewCasesArray(data.cases)
     const deathsData = getNewCasesArray(data.deaths)
     const ref = useRef<THREE.Group>(null!)
-    const height = Math.max(...casesData.map(d => d.count))/50
-    const {zoom} = useControls({
-        zoom: {
-            value: 1,
-            min: 0.5,
-            max: 4
-        }
-    })
     const clicked = useRef<THREE.Object3D>()
-
     
     const handleClick = (e: ThreeEvent<MouseEvent>) => {
         e.stopPropagation()
@@ -70,7 +69,6 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
                 clicked.current.localToWorld(p.set(0, 20, 45))
                 clicked.current.getWorldQuaternion(q)
             }
-
         }
     }
 
@@ -82,12 +80,10 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
     useFrame((state, delta) => {
         state.camera.quaternion.slerp(q, THREE.MathUtils.damp(0, 1, 2, delta))
         state.camera.position.lerp(p, THREE.MathUtils.damp(0, 1, 4, delta))
-        
-
     })
 
-
     return (
+        <>
         <group ref={ref} onClick={handleClick} >
             <BarChart 
             name='cases' 
@@ -102,7 +98,13 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
             rotation={[0, Math.PI/10, 0]}
             color='#C66651'
             />
-        </group>
+
+        </group>        
+        <Html position={[10, 10, 10]}> 
+                HHEELLLO
+            </Html>
+        </>
+
     )
 }
 
