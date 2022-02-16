@@ -1,5 +1,5 @@
 import { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next"
-import React, { ReactNode, RefObject, useEffect, useRef, useState } from "react"
+import React, { ReactNode, RefObject, useEffect, useMemo, useRef, useState } from "react"
 import BarChart from '../components/BarChart'
 import { CasesType, NewCasesType, TimeSeriesType } from '../types'
 import { getNewCasesArray } from '../utils/toArray'
@@ -24,7 +24,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
         q.set(0, 0, 0, 1)
         p.set(0, 10, 30)
     }
-    const lastUpdated = casesData[casesData.length -1]
+    const lastUpdated = useMemo(() => {casesData[casesData.length -1]}, [casesData])
 
 
     return (
