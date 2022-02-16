@@ -1,5 +1,5 @@
 import { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next"
-import React, { ReactNode, RefObject, useEffect, useRef, useState } from "react"
+import React, { ReactNode, RefObject, useEffect, useMemo, useRef, useState } from "react"
 import BarChart from '../components/BarChart'
 import { CasesType, NewCasesType, TimeSeriesType } from '../types'
 import { getNewCasesArray } from '../utils/toArray'
@@ -20,14 +20,21 @@ const p = new THREE.Vector3(0, 10, 30)
 export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
     const data: TimeSeriesType = jsonData
     const casesData = getNewCasesArray(data.cases)
+    const q = new THREE.Quaternion(0, 0, 0)
+    const p = new THREE.Vector3(0, 10, 30)
+    const handleBack = () => {
+        q.set(0, 0, 0, 1)
+        p.set(0, 10, 30)
+    }
+    const lastUpdated = useMemo(() => {casesData[casesData.length -1]}, [casesData])
+
 
     return (
         <>
             <main>
                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
                 <h2>global daily time series data</h2>
-                <p><small>last updated: {casesData.at(-1)?.title}</small></p>
-
+                <p><small>last updated: {lastUpdated}</small></p>
                 <section>
 
                     <Canvas>
