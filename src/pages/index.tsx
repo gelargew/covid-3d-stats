@@ -24,6 +24,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
         q.set(0, 0, 0, 1)
         p.set(0, 10, 30)
     }
+    const lastUpdated = casesData.at(-1)?.title
 
 
     return (
@@ -31,7 +32,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
             <main>
                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
                 <h2>global daily time series data</h2>
-                <p><small>last updated: {casesData.at(-1)?.title}</small></p>
+                <p><small>last updated: {lastUpdated}</small></p>
                 <section>
                     <Canvas>
                         <ambientLight />
