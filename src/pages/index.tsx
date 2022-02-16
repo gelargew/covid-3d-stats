@@ -24,7 +24,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
         q.set(0, 0, 0, 1)
         p.set(0, 10, 30)
     }
-    const lastUpdated = casesData ? casesData.at(-1)?.title : ''
+    const lastUpdated = casesData[casesData.length -1]
 
 
     return (
