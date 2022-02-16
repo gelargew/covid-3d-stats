@@ -12,6 +12,7 @@
     "@react-three/fiber": "^7.0.25",
     "@types/three": "^0.136.1",
     "jotai": "^1.5.3",
+    "leva": "^0.9.20",
     "next": "12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
