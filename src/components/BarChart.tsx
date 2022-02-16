@@ -72,7 +72,7 @@ export default function BarChart({
                     <meshLambertMaterial  />
                     {data.map((d, i) => 
                     <Bar key={i} 
-                    position={[(i - data.length/2)*1.1*width, 0, 0]} 
+                    position={[(i - data.length/2)*width, 0, 0]} 
                     data={d}
                     height={height}
                     color={color}
@@ -132,17 +132,31 @@ const Bar = ({data, height, ...props}: any) => {
     const ref: any = useRef()
     const yScale = useMemo(() => data.count/height, [height])
     const [hovered, setHovered] = useState(false)
+    const barDescriptionDiv = useRef<HTMLElement>(document.querySelector('.bar-desc'))
+    const localeFormatCount = data.count.toLocaleString()
 
     useFrame((st, dt) => {
         ref.current.scale.y = THREE.MathUtils.damp(ref.current.scale.y, yScale, 0.01, 5)
         ref.current.color.lerp(color.set(hovered ? '#4CADB0' : props.color), hovered ? 1 : 0.1)
     })
 
+    const handleHover = () => {
+        setHovered(true)
+        if (barDescriptionDiv.current) {
+            barDescriptionDiv.current.innerHTML = `<p><small>${data.title}</small></p><p>count: ${localeFormatCount}</p>`
+            barDescriptionDiv.current.style.display = 'block'
+        }
+    }
+
+    const handleLeave = () => {
+        setHovered(false)
+    }
+
 
     return (
         <Instance ref={ref} color={props.color} castShadow
-        onPointerOver={() => setHovered(true)}
-        onPointerLeave={() => setHovered(false)} 
+        onPointerOver={handleHover}
+        onPointerLeave={handleLeave} 
         name={data.title}
         userData={{
             data

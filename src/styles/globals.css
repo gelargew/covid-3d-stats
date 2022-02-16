@@ -72,3 +72,20 @@ button#back {
   top: 2rem;
 
 }
+
+.bar-desc {
+  z-index: 2;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  background: none;
+  border: 1px dashed white;
+  border-radius: 2px;
+  width: 10rem;
+  height: 4rem;
+  opacity: 1;
+}
+
+.bar-desc>p {
+  margin: 0.2rem;
+}
