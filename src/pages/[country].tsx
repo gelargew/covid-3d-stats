@@ -8,7 +8,7 @@ export default function Country({ country }: InferGetStaticPropsType<typeof getS
     return (
         <>
             <main>
-                <h1>{country}</h1>
+                <h1>{country.replaceAll('-', ' ')}</h1>
             </main>
         </>
 
@@ -26,9 +26,11 @@ interface Params extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
     const params = context.params!
     const { country } = params
-
+    
+    
+    
     return {
-        props: { country }, revalidate: 60*60*24
+        props: { country }
     }
 }
 
@@ -40,8 +42,10 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
     for (const country in countries) {
         //@ts-ignore
         const slug: string = countries[country].slug
+        console.log(slug)
         paths.push({ params: { country: slug, days: '30' }})
     }
+
 
 
     return { paths, fallback: true }

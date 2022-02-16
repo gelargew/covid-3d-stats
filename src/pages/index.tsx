@@ -14,17 +14,12 @@ import { useControls } from "leva"
 
 
 const AXIS_ANGLE = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(-1, 0.5, 0.3), Math.PI/6)
+const q = new THREE.Quaternion(0, 0, 0)
+const p = new THREE.Vector3(0, 10, 30)
 
 export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
     const data: TimeSeriesType = jsonData
     const casesData = getNewCasesArray(data.cases)
-    const q = new THREE.Quaternion(0, 0, 0)
-    const p = new THREE.Vector3(0, 10, 30)
-    const handleBack = () => {
-        q.set(0, 0, 0, 1)
-        p.set(0, 10, 30)
-    }
-
 
     return (
         <>
@@ -32,30 +27,45 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
                 <h2>global daily time series data</h2>
                 <p><small>last updated: {casesData.at(-1)?.title}</small></p>
+
                 <section>
+
                     <Canvas>
                         <ambientLight />
-                        <Objects data={data} q={q} p={p} />
+                        <Objects data={data} />
                         <Reflector />
                     </Canvas>
-                    <div className="bar-desc">
+
+                    <div className="canvas-layout">
+                        <div className="bar-desc">
+                        </div>
+                        <button className='back-button' >BACK</button>
                     </div>
+
                 </section>
-                <button id='back' onClick={handleBack} >BACK</button>
+                
             </main>
         </>
         
     )
 }
 
-const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3(0, 0, 0)}: 
-{ data: TimeSeriesType, q?: THREE.Quaternion, p?: THREE.Vector3}) => {
+const Objects = ({ data }: 
+{ data: TimeSeriesType }) => {
     const casesData = getNewCasesArray(data.cases)
     const deathsData = getNewCasesArray(data.deaths)
     const ref = useRef<THREE.Group>(null!)
     const clicked = useRef<THREE.Object3D>()
+    const backButton = useRef(document.querySelector('.back-button'))
+    const canvasLayout = useRef(document.querySelector('.canvas-layout'))
 
-    
+    const handleBack = () => {
+        q.set(0, 0, 0, 1);
+        p.set(0, 10, 30);
+        (canvasLayout.current as HTMLElement).style.display = 'none'
+        clicked.current = undefined
+    }
+
     const handleClick = (e: ThreeEvent<MouseEvent>) => {
         e.stopPropagation()
         if (e.object.parent) {
@@ -63,8 +73,7 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
                 e.object.updateWorldMatrix(true, true)
                 e.object.getWorldQuaternion(q)    
                 q.multiply(AXIS_ANGLE) 
-                e.object.localToWorld(p.set(0, 1.1, 20))  
-       
+                e.object.localToWorld(p.set(0, 1.1, 20));
             }
             else {
                 clicked.current = e.object.parent
@@ -73,11 +82,14 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
                 clicked.current.getWorldQuaternion(q)
             }
         }
+        (canvasLayout.current as HTMLElement).style.display = 'flex'
     }
 
     useEffect(() => {
         ref.current.getWorldQuaternion(q)
-
+        backButton.current?.addEventListener('click', () => {
+            handleBack()
+        })
     }, [])
 
     useFrame((state, delta) => {
@@ -86,7 +98,6 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
     })
 
     return (
-        <>
         <group ref={ref} onClick={handleClick} >
             <BarChart 
             name='cases' 
@@ -103,11 +114,6 @@ const Objects = ({ data, q= new THREE.Quaternion(0, 0, 0), p = new THREE.Vector3
             />
 
         </group>        
-        <Html position={[10, 10, 10]}> 
-                HHEELLLO
-            </Html>
-        </>
-
     )
 }
 

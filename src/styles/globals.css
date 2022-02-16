@@ -47,6 +47,7 @@ main>h1 {
 
 main>section {
   flex: 1;
+  position: relative;
 }
 
 
@@ -65,25 +66,25 @@ nav {
 }
 
 
-button#back {
-  position: absolute;
-  z-index: 2;
-  left: 2rem;
-  top: 2rem;
-
+button.back-button {
+  width: 60%;
 }
-
-.bar-desc {
+.canvas-layout {
+  display: none;
   z-index: 2;
   position: absolute;
-  bottom: 10%;
+  top: 0;
   left: 10%;
   background: none;
-  border: 1px dashed white;
+  border-bottom: 1px dashed white;
+  border-right: 1px dashed white;
   border-radius: 2px;
-  width: 10rem;
-  height: 4rem;
-  opacity: 1;
+  width: 15rem;
+  height: 10rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  place-items: center;
 }
 
 .bar-desc>p {
