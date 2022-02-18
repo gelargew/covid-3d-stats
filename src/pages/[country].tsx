@@ -4,38 +4,49 @@ import { ParsedUrlQuery } from "querystring";
 import countries from '../countries.json'
 import { TimeSeriesType } from "../types";
 import { getNewCasesArray } from "../utils/toArray";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import HistoricalCases from "../components/HistoricalCases";
 import { Reflector } from "../components/Reflector";
 
 export default function Country({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
 
-    const data = jsonData.timeline
-    const casesData = getNewCasesArray(data.cases)
-    const lastUpdated = casesData[casesData.length -1].title
-    
+    const data = jsonData ? jsonData.timeline : null
+    const casesData = data ? getNewCasesArray(data.cases) : null
+    const lastUpdated = casesData ? casesData[casesData.length -1].title : null
+
+
     return (
         <>
             <main>
                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
-                <h2>{jsonData.country}</h2>
-                <p><small>last updated: {lastUpdated}</small></p>
-                <section>
+                {
+                    jsonData && data ?
+                    <>
+                        <h2>{jsonData.country}</h2>
+                        <p><small>last updated: {lastUpdated}</small></p>
+                        <section>
 
-                    <Canvas>
-                        <ambientLight />
-                        <HistoricalCases data={data} />
-                        <Reflector />
-                    </Canvas>
+                            <Canvas>
+                                <ambientLight />
+                                <HistoricalCases data={data} />
+                                <Reflector />
+                            </Canvas>
 
-                    <div className="canvas-layout">
-                        <div className="bar-desc">
-                        </div>
-                        <button className='back-button' >BACK</button>
-                    </div>
+                            <div className="canvas-layout">
+                                <div className="bar-desc">
+                                </div>
+                                <button className='back-button' >BACK</button>
+                            </div>
 
-                </section>
+                        </section>                   
+                    </>
+                    :
+                    <h2>
+                        Failed to get data 
+                    </h2>
+                }
+
                 
             </main>
         </>
@@ -44,7 +55,7 @@ export default function Country({ jsonData }: InferGetStaticPropsType<typeof get
 }
 
 interface Props {
-    jsonData: CountryHistoricalType
+    jsonData: CountryHistoricalType | undefined
 }
 
 interface Params extends ParsedUrlQuery {
@@ -71,7 +82,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
     }
     const url = `https://disease.sh/v3/covid-19/historical/${iso3}?lastdays=360`
     const res = await fetch(url)
-    const jsonData: CountryHistoricalType = await res.json()
+    const jsonData = await res.json()
     
     if (!res.ok) {
         throw new Error(`Failed to get data from "${url}", received status ${res.status}`)
