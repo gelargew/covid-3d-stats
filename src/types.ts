@@ -19,4 +19,6 @@ interface PropsType {
 }
 
 
+
+
 export type {CasesType, TimeSeriesType, NewCasesType, PropsType}

@@ -16,7 +16,6 @@ const Reflector = () => {
             color="#151515"
             metalness={0.5}
             mirror={1}
-            alphaWrite={0}
         />
     </mesh>
     )
