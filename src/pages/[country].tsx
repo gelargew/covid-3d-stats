@@ -9,7 +9,9 @@ import { Canvas } from "@react-three/fiber";
 import HistoricalCases from "../components/HistoricalCases";
 import { Reflector } from "../components/Reflector";
 
-export default function Country({ data, lastUpdated, countryName }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Country({ data, countryName }: InferGetStaticPropsType<typeof getStaticProps>) {
+    const casesData = data ? getNewCasesArray(data.cases) : null
+    const lastUpdated = casesData ? casesData[casesData.length -1].title : null
 
     return (
         <>
@@ -89,11 +91,10 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
     }
 
     const data = jsonData.timeline
-    const casesData = getNewCasesArray(data.cases)
-    const lastUpdated = casesData[casesData.length -1].title
+
     
     return {
-        props: { data, lastUpdated, countryName },
+        props: { data, countryName },
         revalidate: 60*60*6
     }
 }
