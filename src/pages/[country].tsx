@@ -4,11 +4,11 @@ import { ParsedUrlQuery } from "querystring";
 import countries from '../countries.json'
 
 export default function Country({ country }: InferGetStaticPropsType<typeof getStaticProps>) {
-
+    const a = country.replaceAll('-', ' ')
     return (
         <>
             <main>
-                <h1>{country.replaceAll('-', ' ')}</h1>
+                <h1>{a}</h1>
             </main>
         </>
 

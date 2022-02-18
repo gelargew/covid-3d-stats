@@ -20,12 +20,6 @@ const p = new THREE.Vector3(0, 10, 30)
 export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
     const data: TimeSeriesType = jsonData
     const casesData = getNewCasesArray(data.cases)
-    const q = new THREE.Quaternion(0, 0, 0)
-    const p = new THREE.Vector3(0, 10, 30)
-    const handleBack = () => {
-        q.set(0, 0, 0, 1)
-        p.set(0, 10, 30)
-    }
     const lastUpdated = useMemo(() => {casesData[casesData.length -1]}, [casesData])
 
 
