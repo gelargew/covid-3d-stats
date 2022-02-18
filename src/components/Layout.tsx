@@ -9,7 +9,7 @@ import { useRouter } from "next/router"
 export default function Layout() {
     const router = useRouter()
     const selected = useMemo(() => {
-        const path = router.pathname.replaceAll('-', ' ')
+        const path = router.pathname.replace(/-/g, ' ')
 
         return path
     }, [router.pathname])

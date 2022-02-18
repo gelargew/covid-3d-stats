@@ -66,7 +66,7 @@ interface CountryHistoricalType {
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
     const params = context.params!
     const { country } = params
-    const countryName = country.replaceAll(/-/g, ' ')
+    const countryName = country.replace(/-/g, ' ')
     let iso3 = ''
     for (const c in countries) {      
         if (c === countryName) {
