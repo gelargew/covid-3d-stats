@@ -11,6 +11,9 @@ import { Reflector } from "../components/Reflector";
 
 export default function Country({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
     const data = jsonData.timeline
+    const casesData = getNewCasesArray(data.cases)
+    const lastUpdated = useMemo(() => casesData[casesData.length -1].title, [casesData])
+
     if (!data) {
         return (
             <main>
@@ -18,11 +21,6 @@ export default function Country({ jsonData }: InferGetStaticPropsType<typeof get
             </main>
         )
     }
-
-    const casesData = getNewCasesArray(data.cases)
-    const lastUpdated = useMemo(() => casesData[casesData.length -1].title, [casesData])
-
-
     return (
         <>
             <main>
