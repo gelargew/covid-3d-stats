@@ -10,17 +10,18 @@ import HistoricalCases from "../components/HistoricalCases";
 import { Reflector } from "../components/Reflector";
 
 export default function Country({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
-    const data = jsonData.timeline
-    const casesData = getNewCasesArray(data.cases)
-    const lastUpdated = useMemo(() => casesData[casesData.length -1].title, [casesData])
 
-    if (!data) {
+    if (!jsonData) {
         return (
             <main>
                 <h1>this page currently has some problem</h1>
             </main>
         )
     }
+
+    const data = jsonData.timeline
+    const casesData = getNewCasesArray(data.cases)
+    const lastUpdated = casesData[casesData.length -1].title
     return (
         <>
             <main>
@@ -71,7 +72,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
     for (const c in countries) {      
         if (c === countryName) {
             //@ts-ignore
-            iso3 = countries[country].iso3
+            iso3 = countries[countryName].iso3
             break
         }
     }
