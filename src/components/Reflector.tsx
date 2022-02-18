@@ -6,9 +6,9 @@ const Reflector = () => {
         <planeGeometry args={[1000, 1000]} />
         <MeshReflectorMaterial
             blur={[300, 100]}
-            resolution={2048}
+            resolution={512}
             mixBlur={1}
-            mixStrength={60}
+            mixStrength={10}
             roughness={1}
             depthScale={1.2}
             minDepthThreshold={0.4}
@@ -16,6 +16,7 @@ const Reflector = () => {
             color="#151515"
             metalness={0.5}
             mirror={1}
+            alphaWrite={0}
         />
     </mesh>
     )

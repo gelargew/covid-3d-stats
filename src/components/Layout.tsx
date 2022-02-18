@@ -5,13 +5,12 @@ import { allCountries, allCountriesProps } from "../storage"
 import { fetchSummary } from "../utils/fetch"
 import countries from '../countries.json'
 
-export default function Layout({ data }: { data?: allCountriesProps[]}) {
-    useEffect(() => {
-        console.log('helo')
-    }, [])
+export default function Layout() {
 
+    
     return (
         <nav>
+            <Link href='/'>Worldwide</Link>
             {Object.keys(countries).map(country => 
             // @ts-ignore
                 <Link href={`/${countries[country].slug}`} key={country}>

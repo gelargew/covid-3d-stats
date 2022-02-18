@@ -21,7 +21,6 @@ interface chartProps {
 const color = new THREE.Color()
 
 const truncateCount = (str: string) => {
-    console.log(str.length)
     if (str.length > 7) {
         return `${str.slice(0, -6)}m`
     }
@@ -45,7 +44,6 @@ export default function BarChart({
     if (!height) height = Math.max(...data.map(d => d.count))/30
     const layoutX = (-2 - data.length/2)*1.1*width
     const line = useRef<THREE.Group>()
-    const lineVec3 = new THREE.Vector3(10, 30, 0)
     const text = useMemo(() => {
         const a = Math.ceil(Math.max(...data.map(d => d.count)))
         const b = Math.ceil(a *2/3)
@@ -80,22 +78,22 @@ export default function BarChart({
                 </Instances>
 
                 <group position={[layoutX, 0, 0]} >
-                    <mesh geometry={geometry} scale={[0.1, 32, 0.1]} />
-                    <group ref={line} position={[-0.5, 30, 0]}>
+                    <mesh geometry={geometry} scale={[0.4, 32, 0.1]} />
+                    <group ref={line} position={[-0.1, 30, 0]}>
                         <mesh geometry={geometry}  scale={[2, 0.1, 0.1]} />
                         <Text
                         fontSize={1}
                         position={[-3, 0, 0]}
                         >{text[0]}</Text>
                     </group>
-                    <group ref={line} position={[-0.5, 20, 0]}>
+                    <group ref={line} position={[-0.4, 20, 0]}>
                         <mesh geometry={geometry}  scale={[2, 0.1, 0.1]} />
                         <Text
                         fontSize={1}
                         position={[-3, 0, 0]}
                         >{text[1]}</Text>
                     </group>
-                    <group ref={line} position={[-0.5, 10, 0]}>
+                    <group ref={line} position={[-0.4, 10, 0]}>
                         <mesh geometry={geometry}  scale={[2, 0.1, 0.1]} />
                         <Text
                         fontSize={1}
