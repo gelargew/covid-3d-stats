@@ -1,15 +1,22 @@
 import { useAtom } from "jotai"
 import Link from "next/link"
-import { useEffect, useLayoutEffect } from "react"
+import { useEffect, useLayoutEffect, useMemo } from "react"
 import { allCountries, allCountriesProps } from "../storage"
 import { fetchSummary } from "../utils/fetch"
 import countries from '../countries.json'
+import { useRouter } from "next/router"
 
 export default function Layout() {
+    const router = useRouter()
+    const selected = useMemo(() => {
+        const path = router.pathname.replaceAll('-', ' ')
 
-    
+        return path
+    }, [router.pathname])
+
     return (
         <nav>
+            <button>{selected}</button>
             <Link href='/'>Worldwide</Link>
             {Object.keys(countries).map(country => 
             // @ts-ignore

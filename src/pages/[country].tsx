@@ -65,11 +65,11 @@ interface CountryHistoricalType {
 
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
     const params = context.params!
-    let { country } = params
-    country = country.replaceAll('-', ' ')
+    const { country } = params
+    const countryName = country.replaceAll('-', ' ')
     let iso3 = ''
-    for (const c in countries) {
-        if (c === country) {
+    for (const c in countries) {      
+        if (c === countryName) {
             //@ts-ignore
             iso3 = countries[country].iso3
             break
@@ -95,8 +95,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
     for (const country in countries) {
         //@ts-ignore
         const slug: string = countries[country].slug
-        console.log(slug)
-        paths.push({ params: { country: slug, days: '30' }})
+        paths.push({ params: { country: slug }})
     }
 
 
