@@ -37,7 +37,7 @@ export default function Country({ data, lastUpdated, countryName }: InferGetStat
                         </section>                   
                     </>:
                     <>
-                        <h2>Failed to get data from "https://disease.sh/v3/covid-19/historical/{countryName}"</h2>
+                        <h2>Failed to get data from &quot;https://disease.sh/v3/covid-19/historical/{countryName}&quot;</h2>
                     </>
                 }
 
@@ -82,7 +82,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
     
     if (!res.ok) {
         return {
-            props: { countryName },
+            notFound: true,
             revalidate: 60*60*6
         }
         /* throw new Error(`Failed to get data from "${url}", received status ${res.status}`) */
@@ -111,5 +111,5 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 
 
 
-    return { paths, fallback: true }
+    return { paths, fallback: 'blocking' }
 }
