@@ -4,7 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 import countries from '../countries.json'
 
 export default function Country({ country }: InferGetStaticPropsType<typeof getStaticProps>) {
-    const a = country.replaceAll('-', ' ')
+    const a = country ? country.replaceAll('-', ' ') : ''
     return (
         <>
             <main>
