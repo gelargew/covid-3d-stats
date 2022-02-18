@@ -16,22 +16,31 @@ export default function Country({ data, lastUpdated, countryName }: InferGetStat
             <main>
                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
                 <h2>{countryName}</h2>
-                <p><small>last updated: {lastUpdated}</small></p>
-                <section>
+                {
+                    data ?
+                    <>
+                        <p><small>last updated: {lastUpdated}</small></p>
+                        <section>
 
-                    <Canvas>
-                        <ambientLight />
-                        <HistoricalCases data={data} />
-                        <Reflector />
-                    </Canvas>
+                            <Canvas>
+                                <ambientLight />
+                                <HistoricalCases data={data} />
+                                <Reflector />
+                            </Canvas>
 
-                    <div className="canvas-layout">
-                        <div className="bar-desc">
-                        </div>
-                        <button className='back-button' >BACK</button>
-                    </div>
+                            <div className="canvas-layout">
+                                <div className="bar-desc">
+                                </div>
+                                <button className='back-button' >BACK</button>
+                            </div>
 
-                </section>
+                        </section>                   
+                    </>:
+                    <>
+                        <h2>Failed to get data from "https://disease.sh/v3/covid-19/historical/{countryName}"</h2>
+                    </>
+                }
+
                 
             </main>
         </>
@@ -40,10 +49,9 @@ export default function Country({ data, lastUpdated, countryName }: InferGetStat
 }
 
 interface Props {
-    data: TimeSeriesType,
-    lastUpdated: string,
+    data?: TimeSeriesType,
+    lastUpdated?: string,
     countryName: string
-
 }
 
 interface Params extends ParsedUrlQuery {
@@ -73,7 +81,11 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
     const jsonData: CountryHistoricalType = await res.json()
     
     if (!res.ok) {
-        throw new Error(`Failed to get data from "${url}", received status ${res.status}`)
+        return {
+            props: { countryName },
+            revalidate: 60*60*6
+        }
+        /* throw new Error(`Failed to get data from "${url}", received status ${res.status}`) */
     }
 
     const data = jsonData.timeline
@@ -82,7 +94,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
     
     return {
         props: { data, lastUpdated, countryName },
-        revalidate: 60*60*24
+        revalidate: 60*60*6
     }
 }
 
