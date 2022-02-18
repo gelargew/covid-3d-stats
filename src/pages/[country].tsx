@@ -11,17 +11,10 @@ import { Reflector } from "../components/Reflector";
 
 export default function Country({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
 
-    if (!jsonData) {
-        return (
-            <main>
-                <h1>this page currently has some problem</h1>
-            </main>
-        )
-    }
-
     const data = jsonData.timeline
     const casesData = getNewCasesArray(data.cases)
     const lastUpdated = casesData[casesData.length -1].title
+    
     return (
         <>
             <main>
@@ -76,11 +69,13 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
             break
         }
     }
-
-    const res = await fetch(`https://disease.sh/v3/covid-19/historical/${iso3}?lastdays=360`)
+    const url = `https://disease.sh/v3/covid-19/historical/${iso3}?lastdays=360`
+    const res = await fetch(url)
     const jsonData: CountryHistoricalType = await res.json()
     
-    
+    if (!res.ok) {
+        throw new Error(`Failed to get data from "${url}", received status ${res.status}`)
+    }
     
     return {
         props: { jsonData },
