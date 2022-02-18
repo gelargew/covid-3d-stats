@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { MeshReflectorMaterial } from "@react-three/drei"
 
 const Reflector = () => {

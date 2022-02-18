@@ -8,15 +8,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "^8.10.1",
-    "@react-three/fiber": "^7.0.25",
+    "@react-three/drei": "8.3.1",
+    "@react-three/fiber": "^7.0.26",
     "@types/three": "^0.136.1",
     "jotai": "^1.5.3",
     "leva": "^0.9.20",
     "next": "12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "three": "^0.137.5"
+    "three": "0.136.0"
   },
   "devDependencies": {
     "@types/node": "17.0.10",
