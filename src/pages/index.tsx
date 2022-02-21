@@ -10,7 +10,7 @@ import * as THREE from 'three'
 import '../styles/index.module.css'
 
 
-import HistoricalCases from "../components/HistoricalCases"
+import HistoricalCases from "../../covid_data/historical_all.json"
 
 
 const AXIS_ANGLE = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(-1, 0.5, 0.3), Math.PI/6)
@@ -27,7 +27,9 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
     return (
         <>
             <main>
-                <h1>COVID-19 PANDEMIC STATISTICS</h1>
+                <button onClick={() => console.log(HistoricalCases)}>HistoricalCases</button>
+
+{/*                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
                 <h2>global daily time series data</h2>
                 <p><small>last updated: {lastUpdated}</small></p>
                 <section>
@@ -44,7 +46,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
                         <button className='back-button' ><img src='/icon-back.svg' /></button>
                     </div>
 
-                </section>
+                </section> */}
                 
             </main>
         </>
