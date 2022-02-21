@@ -1,0 +1,1339 @@
+{
+    "Afghanistan": {
+        "iso3": "AFG",
+        "flag": "https://disease.sh/assets/img/flags/af.png",
+        "lat": 33,
+        "long": 65,
+        "slug": "Afghanistan"
+    },
+    "Albania": {
+        "iso3": "ALB",
+        "flag": "https://disease.sh/assets/img/flags/al.png",
+        "lat": 41,
+        "long": 20,
+        "slug": "Albania"
+    },
+    "Algeria": {
+        "iso3": "DZA",
+        "flag": "https://disease.sh/assets/img/flags/dz.png",
+        "lat": 28,
+        "long": 3,
+        "slug": "Algeria"
+    },
+    "Andorra": {
+        "iso3": "AND",
+        "flag": "https://disease.sh/assets/img/flags/ad.png",
+        "lat": 42.5,
+        "long": 1.6,
+        "slug": "Andorra"
+    },
+    "Angola": {
+        "iso3": "AGO",
+        "flag": "https://disease.sh/assets/img/flags/ao.png",
+        "lat": -12.5,
+        "long": 18.5,
+        "slug": "Angola"
+    },
+    "Antigua and Barbuda": {
+        "iso3": "ATG",
+        "flag": "https://disease.sh/assets/img/flags/ag.png",
+        "lat": 17.05,
+        "long": -61.8,
+        "slug": "Antigua-and-Barbuda"
+    },
+    "Argentina": {
+        "iso3": "ARG",
+        "flag": "https://disease.sh/assets/img/flags/ar.png",
+        "lat": -34,
+        "long": -64,
+        "slug": "Argentina"
+    },
+    "Armenia": {
+        "iso3": "ARM",
+        "flag": "https://disease.sh/assets/img/flags/am.png",
+        "lat": 40,
+        "long": 45,
+        "slug": "Armenia"
+    },
+    "Australia": {
+        "iso3": "AUS",
+        "flag": "https://disease.sh/assets/img/flags/au.png",
+        "lat": -27,
+        "long": 133,
+        "slug": "Australia"
+    },
+    "Austria": {
+        "iso3": "AUT",
+        "flag": "https://disease.sh/assets/img/flags/at.png",
+        "lat": 47.3333,
+        "long": 13.3333,
+        "slug": "Austria"
+    },
+    "Azerbaijan": {
+        "iso3": "AZE",
+        "flag": "https://disease.sh/assets/img/flags/az.png",
+        "lat": 40.5,
+        "long": 47.5,
+        "slug": "Azerbaijan"
+    },
+    "Bahamas": {
+        "iso3": "BHS",
+        "flag": "https://disease.sh/assets/img/flags/bs.png",
+        "lat": 24.25,
+        "long": -76,
+        "slug": "Bahamas"
+    },
+    "Bahrain": {
+        "iso3": "BHR",
+        "flag": "https://disease.sh/assets/img/flags/bh.png",
+        "lat": 26,
+        "long": 50.55,
+        "slug": "Bahrain"
+    },
+    "Bangladesh": {
+        "iso3": "BGD",
+        "flag": "https://disease.sh/assets/img/flags/bd.png",
+        "lat": 24,
+        "long": 90,
+        "slug": "Bangladesh"
+    },
+    "Barbados": {
+        "iso3": "BRB",
+        "flag": "https://disease.sh/assets/img/flags/bb.png",
+        "lat": 13.1667,
+        "long": -59.5333,
+        "slug": "Barbados"
+    },
+    "Belarus": {
+        "iso3": "BLR",
+        "flag": "https://disease.sh/assets/img/flags/by.png",
+        "lat": 53,
+        "long": 28,
+        "slug": "Belarus"
+    },
+    "Belgium": {
+        "iso3": "BEL",
+        "flag": "https://disease.sh/assets/img/flags/be.png",
+        "lat": 50.8333,
+        "long": 4,
+        "slug": "Belgium"
+    },
+    "Belize": {
+        "iso3": "BLZ",
+        "flag": "https://disease.sh/assets/img/flags/bz.png",
+        "lat": 17.25,
+        "long": -88.75,
+        "slug": "Belize"
+    },
+    "Benin": {
+        "iso3": "BEN",
+        "flag": "https://disease.sh/assets/img/flags/bj.png",
+        "lat": 9.5,
+        "long": 2.25,
+        "slug": "Benin"
+    },
+    "Bhutan": {
+        "iso3": "BTN",
+        "flag": "https://disease.sh/assets/img/flags/bt.png",
+        "lat": 27.5,
+        "long": 90.5,
+        "slug": "Bhutan"
+    },
+    "Bolivia": {
+        "iso3": "BOL",
+        "flag": "https://disease.sh/assets/img/flags/bo.png",
+        "lat": -17,
+        "long": -65,
+        "slug": "Bolivia"
+    },
+    "Bosnia": {
+        "iso3": "BIH",
+        "flag": "https://disease.sh/assets/img/flags/ba.png",
+        "lat": 44,
+        "long": 18,
+        "slug": "Bosnia"
+    },
+    "Botswana": {
+        "iso3": "BWA",
+        "flag": "https://disease.sh/assets/img/flags/bw.png",
+        "lat": -22,
+        "long": 24,
+        "slug": "Botswana"
+    },
+    "Brazil": {
+        "iso3": "BRA",
+        "flag": "https://disease.sh/assets/img/flags/br.png",
+        "lat": -10,
+        "long": -55,
+        "slug": "Brazil"
+    },
+    "Brunei": {
+        "iso3": "BRN",
+        "flag": "https://disease.sh/assets/img/flags/bn.png",
+        "lat": 4.5,
+        "long": 114.6667,
+        "slug": "Brunei"
+    },
+    "Bulgaria": {
+        "iso3": "BGR",
+        "flag": "https://disease.sh/assets/img/flags/bg.png",
+        "lat": 43,
+        "long": 25,
+        "slug": "Bulgaria"
+    },
+    "Burkina Faso": {
+        "iso3": "BFA",
+        "flag": "https://disease.sh/assets/img/flags/bf.png",
+        "lat": 13,
+        "long": -2,
+        "slug": "Burkina-Faso"
+    },
+    "Burundi": {
+        "iso3": "BDI",
+        "flag": "https://disease.sh/assets/img/flags/bi.png",
+        "lat": -3.5,
+        "long": 30,
+        "slug": "Burundi"
+    },
+    "Cabo Verde": {
+        "iso3": "CPV",
+        "flag": "https://disease.sh/assets/img/flags/cv.png",
+        "lat": 16,
+        "long": -24,
+        "slug": "Cabo-Verde"
+    },
+    "Cambodia": {
+        "iso3": "KHM",
+        "flag": "https://disease.sh/assets/img/flags/kh.png",
+        "lat": 13,
+        "long": 105,
+        "slug": "Cambodia"
+    },
+    "Cameroon": {
+        "iso3": "CMR",
+        "flag": "https://disease.sh/assets/img/flags/cm.png",
+        "lat": 6,
+        "long": 12,
+        "slug": "Cameroon"
+    },
+    "Canada": {
+        "iso3": "CAN",
+        "flag": "https://disease.sh/assets/img/flags/ca.png",
+        "lat": 60,
+        "long": -95,
+        "slug": "Canada"
+    },
+    "Central African Republic": {
+        "iso3": "CAF",
+        "flag": "https://disease.sh/assets/img/flags/cf.png",
+        "lat": 7,
+        "long": 21,
+        "slug": "Central-African-Republic"
+    },
+    "Chad": {
+        "iso3": "TCD",
+        "flag": "https://disease.sh/assets/img/flags/td.png",
+        "lat": 15,
+        "long": 19,
+        "slug": "Chad"
+    },
+    "Chile": {
+        "iso3": "CHL",
+        "flag": "https://disease.sh/assets/img/flags/cl.png",
+        "lat": -30,
+        "long": -71,
+        "slug": "Chile"
+    },
+    "China": {
+        "iso3": "CHN",
+        "flag": "https://disease.sh/assets/img/flags/cn.png",
+        "lat": 35,
+        "long": 105,
+        "slug": "China"
+    },
+    "Colombia": {
+        "iso3": "COL",
+        "flag": "https://disease.sh/assets/img/flags/co.png",
+        "lat": 4,
+        "long": -72,
+        "slug": "Colombia"
+    },
+    "Comoros": {
+        "iso3": "COM",
+        "flag": "https://disease.sh/assets/img/flags/km.png",
+        "lat": -12.1667,
+        "long": 44.25,
+        "slug": "Comoros"
+    },
+    "Congo": {
+        "iso3": "COG",
+        "flag": "https://disease.sh/assets/img/flags/cg.png",
+        "lat": -1,
+        "long": 15,
+        "slug": "Congo"
+    },
+    "Costa Rica": {
+        "iso3": "CRI",
+        "flag": "https://disease.sh/assets/img/flags/cr.png",
+        "lat": 10,
+        "long": -84,
+        "slug": "Costa-Rica"
+    },
+    "Croatia": {
+        "iso3": "HRV",
+        "flag": "https://disease.sh/assets/img/flags/hr.png",
+        "lat": 45.1667,
+        "long": 15.5,
+        "slug": "Croatia"
+    },
+    "Cuba": {
+        "iso3": "CUB",
+        "flag": "https://disease.sh/assets/img/flags/cu.png",
+        "lat": 21.5,
+        "long": -80,
+        "slug": "Cuba"
+    },
+    "Cyprus": {
+        "iso3": "CYP",
+        "flag": "https://disease.sh/assets/img/flags/cy.png",
+        "lat": 35,
+        "long": 33,
+        "slug": "Cyprus"
+    },
+    "Czechia": {
+        "iso3": "CZE",
+        "flag": "https://disease.sh/assets/img/flags/cz.png",
+        "lat": 49.75,
+        "long": 15.5,
+        "slug": "Czechia"
+    },
+    "C\u00f4te d'Ivoire": {
+        "iso3": "CIV",
+        "flag": "https://disease.sh/assets/img/flags/ci.png",
+        "lat": 8,
+        "long": -5,
+        "slug": "C\u00f4te-d'Ivoire"
+    },
+    "DRC": {
+        "iso3": "COD",
+        "flag": "https://disease.sh/assets/img/flags/cd.png",
+        "lat": 0,
+        "long": 25,
+        "slug": "DRC"
+    },
+    "Denmark": {
+        "iso3": "DNK",
+        "flag": "https://disease.sh/assets/img/flags/dk.png",
+        "lat": 56,
+        "long": 10,
+        "slug": "Denmark"
+    },
+    "Diamond Princess": {
+        "iso3": null,
+        "flag": "https://disease.sh/assets/img/flags/unknown.png",
+        "lat": 0,
+        "long": 0,
+        "slug": "Diamond-Princess"
+    },
+    "Djibouti": {
+        "iso3": "DJI",
+        "flag": "https://disease.sh/assets/img/flags/dj.png",
+        "lat": 11.5,
+        "long": 43,
+        "slug": "Djibouti"
+    },
+    "Dominica": {
+        "iso3": "DMA",
+        "flag": "https://disease.sh/assets/img/flags/dm.png",
+        "lat": 15.4167,
+        "long": -61.3333,
+        "slug": "Dominica"
+    },
+    "Dominican Republic": {
+        "iso3": "DOM",
+        "flag": "https://disease.sh/assets/img/flags/do.png",
+        "lat": 19,
+        "long": -70.6667,
+        "slug": "Dominican-Republic"
+    },
+    "Ecuador": {
+        "iso3": "ECU",
+        "flag": "https://disease.sh/assets/img/flags/ec.png",
+        "lat": -2,
+        "long": -77.5,
+        "slug": "Ecuador"
+    },
+    "Egypt": {
+        "iso3": "EGY",
+        "flag": "https://disease.sh/assets/img/flags/eg.png",
+        "lat": 27,
+        "long": 30,
+        "slug": "Egypt"
+    },
+    "El Salvador": {
+        "iso3": "SLV",
+        "flag": "https://disease.sh/assets/img/flags/sv.png",
+        "lat": 13.8333,
+        "long": -88.9167,
+        "slug": "El-Salvador"
+    },
+    "Equatorial Guinea": {
+        "iso3": "GNQ",
+        "flag": "https://disease.sh/assets/img/flags/gq.png",
+        "lat": 2,
+        "long": 10,
+        "slug": "Equatorial-Guinea"
+    },
+    "Eritrea": {
+        "iso3": "ERI",
+        "flag": "https://disease.sh/assets/img/flags/er.png",
+        "lat": 15,
+        "long": 39,
+        "slug": "Eritrea"
+    },
+    "Estonia": {
+        "iso3": "EST",
+        "flag": "https://disease.sh/assets/img/flags/ee.png",
+        "lat": 59,
+        "long": 26,
+        "slug": "Estonia"
+    },
+    "Ethiopia": {
+        "iso3": "ETH",
+        "flag": "https://disease.sh/assets/img/flags/et.png",
+        "lat": 8,
+        "long": 38,
+        "slug": "Ethiopia"
+    },
+    "Fiji": {
+        "iso3": "FJI",
+        "flag": "https://disease.sh/assets/img/flags/fj.png",
+        "lat": -18,
+        "long": 175,
+        "slug": "Fiji"
+    },
+    "Finland": {
+        "iso3": "FIN",
+        "flag": "https://disease.sh/assets/img/flags/fi.png",
+        "lat": 64,
+        "long": 26,
+        "slug": "Finland"
+    },
+    "France": {
+        "iso3": "FRA",
+        "flag": "https://disease.sh/assets/img/flags/fr.png",
+        "lat": 46,
+        "long": 2,
+        "slug": "France"
+    },
+    "Gabon": {
+        "iso3": "GAB",
+        "flag": "https://disease.sh/assets/img/flags/ga.png",
+        "lat": -1,
+        "long": 11.75,
+        "slug": "Gabon"
+    },
+    "Gambia": {
+        "iso3": "GMB",
+        "flag": "https://disease.sh/assets/img/flags/gm.png",
+        "lat": 13.4667,
+        "long": -16.5667,
+        "slug": "Gambia"
+    },
+    "Georgia": {
+        "iso3": "GEO",
+        "flag": "https://disease.sh/assets/img/flags/ge.png",
+        "lat": 42,
+        "long": 43.5,
+        "slug": "Georgia"
+    },
+    "Germany": {
+        "iso3": "DEU",
+        "flag": "https://disease.sh/assets/img/flags/de.png",
+        "lat": 51,
+        "long": 9,
+        "slug": "Germany"
+    },
+    "Ghana": {
+        "iso3": "GHA",
+        "flag": "https://disease.sh/assets/img/flags/gh.png",
+        "lat": 8,
+        "long": -2,
+        "slug": "Ghana"
+    },
+    "Greece": {
+        "iso3": "GRC",
+        "flag": "https://disease.sh/assets/img/flags/gr.png",
+        "lat": 39,
+        "long": 22,
+        "slug": "Greece"
+    },
+    "Grenada": {
+        "iso3": "GRD",
+        "flag": "https://disease.sh/assets/img/flags/gd.png",
+        "lat": 12.1167,
+        "long": -61.6667,
+        "slug": "Grenada"
+    },
+    "Guatemala": {
+        "iso3": "GTM",
+        "flag": "https://disease.sh/assets/img/flags/gt.png",
+        "lat": 15.5,
+        "long": -90.25,
+        "slug": "Guatemala"
+    },
+    "Guinea": {
+        "iso3": "GIN",
+        "flag": "https://disease.sh/assets/img/flags/gn.png",
+        "lat": 11,
+        "long": -10,
+        "slug": "Guinea"
+    },
+    "Guinea-Bissau": {
+        "iso3": "GNB",
+        "flag": "https://disease.sh/assets/img/flags/gw.png",
+        "lat": 12,
+        "long": -15,
+        "slug": "Guinea-Bissau"
+    },
+    "Guyana": {
+        "iso3": "GUY",
+        "flag": "https://disease.sh/assets/img/flags/gy.png",
+        "lat": 5,
+        "long": -59,
+        "slug": "Guyana"
+    },
+    "Haiti": {
+        "iso3": "HTI",
+        "flag": "https://disease.sh/assets/img/flags/ht.png",
+        "lat": 19,
+        "long": -72.4167,
+        "slug": "Haiti"
+    },
+    "Honduras": {
+        "iso3": "HND",
+        "flag": "https://disease.sh/assets/img/flags/hn.png",
+        "lat": 15,
+        "long": -86.5,
+        "slug": "Honduras"
+    },
+    "Hungary": {
+        "iso3": "HUN",
+        "flag": "https://disease.sh/assets/img/flags/hu.png",
+        "lat": 47,
+        "long": 20,
+        "slug": "Hungary"
+    },
+    "Iceland": {
+        "iso3": "ISL",
+        "flag": "https://disease.sh/assets/img/flags/is.png",
+        "lat": 65,
+        "long": -18,
+        "slug": "Iceland"
+    },
+    "India": {
+        "iso3": "IND",
+        "flag": "https://disease.sh/assets/img/flags/in.png",
+        "lat": 20,
+        "long": 77,
+        "slug": "India"
+    },
+    "Indonesia": {
+        "iso3": "IDN",
+        "flag": "https://disease.sh/assets/img/flags/id.png",
+        "lat": -5,
+        "long": 120,
+        "slug": "Indonesia"
+    },
+    "Iran": {
+        "iso3": "IRN",
+        "flag": "https://disease.sh/assets/img/flags/ir.png",
+        "lat": 32,
+        "long": 53,
+        "slug": "Iran"
+    },
+    "Iraq": {
+        "iso3": "IRQ",
+        "flag": "https://disease.sh/assets/img/flags/iq.png",
+        "lat": 33,
+        "long": 44,
+        "slug": "Iraq"
+    },
+    "Ireland": {
+        "iso3": "IRL",
+        "flag": "https://disease.sh/assets/img/flags/ie.png",
+        "lat": 53,
+        "long": -8,
+        "slug": "Ireland"
+    },
+    "Israel": {
+        "iso3": "ISR",
+        "flag": "https://disease.sh/assets/img/flags/il.png",
+        "lat": 31.5,
+        "long": 34.75,
+        "slug": "Israel"
+    },
+    "Italy": {
+        "iso3": "ITA",
+        "flag": "https://disease.sh/assets/img/flags/it.png",
+        "lat": 42.8333,
+        "long": 12.8333,
+        "slug": "Italy"
+    },
+    "Jamaica": {
+        "iso3": "JAM",
+        "flag": "https://disease.sh/assets/img/flags/jm.png",
+        "lat": 18.25,
+        "long": -77.5,
+        "slug": "Jamaica"
+    },
+    "Japan": {
+        "iso3": "JPN",
+        "flag": "https://disease.sh/assets/img/flags/jp.png",
+        "lat": 36,
+        "long": 138,
+        "slug": "Japan"
+    },
+    "Jordan": {
+        "iso3": "JOR",
+        "flag": "https://disease.sh/assets/img/flags/jo.png",
+        "lat": 31,
+        "long": 36,
+        "slug": "Jordan"
+    },
+    "Kazakhstan": {
+        "iso3": "KAZ",
+        "flag": "https://disease.sh/assets/img/flags/kz.png",
+        "lat": 48,
+        "long": 68,
+        "slug": "Kazakhstan"
+    },
+    "Kenya": {
+        "iso3": "KEN",
+        "flag": "https://disease.sh/assets/img/flags/ke.png",
+        "lat": 1,
+        "long": 38,
+        "slug": "Kenya"
+    },
+    "Kiribati": {
+        "iso3": "KIR",
+        "flag": "https://disease.sh/assets/img/flags/ki.png",
+        "lat": 1.4167,
+        "long": 173,
+        "slug": "Kiribati"
+    },
+    "Kuwait": {
+        "iso3": "KWT",
+        "flag": "https://disease.sh/assets/img/flags/kw.png",
+        "lat": 29.3375,
+        "long": 47.6581,
+        "slug": "Kuwait"
+    },
+    "Kyrgyzstan": {
+        "iso3": "KGZ",
+        "flag": "https://disease.sh/assets/img/flags/kg.png",
+        "lat": 41,
+        "long": 75,
+        "slug": "Kyrgyzstan"
+    },
+    "Lao People's Democratic Republic": {
+        "iso3": "LAO",
+        "flag": "https://disease.sh/assets/img/flags/la.png",
+        "lat": 18,
+        "long": 105,
+        "slug": "Lao-People's-Democratic-Republic"
+    },
+    "Latvia": {
+        "iso3": "LVA",
+        "flag": "https://disease.sh/assets/img/flags/lv.png",
+        "lat": 57,
+        "long": 25,
+        "slug": "Latvia"
+    },
+    "Lebanon": {
+        "iso3": "LBN",
+        "flag": "https://disease.sh/assets/img/flags/lb.png",
+        "lat": 33.8333,
+        "long": 35.8333,
+        "slug": "Lebanon"
+    },
+    "Lesotho": {
+        "iso3": "LSO",
+        "flag": "https://disease.sh/assets/img/flags/ls.png",
+        "lat": -29.5,
+        "long": 28.5,
+        "slug": "Lesotho"
+    },
+    "Liberia": {
+        "iso3": "LBR",
+        "flag": "https://disease.sh/assets/img/flags/lr.png",
+        "lat": 6.5,
+        "long": -9.5,
+        "slug": "Liberia"
+    },
+    "Libyan Arab Jamahiriya": {
+        "iso3": "LBY",
+        "flag": "https://disease.sh/assets/img/flags/ly.png",
+        "lat": 25,
+        "long": 17,
+        "slug": "Libyan-Arab-Jamahiriya"
+    },
+    "Liechtenstein": {
+        "iso3": "LIE",
+        "flag": "https://disease.sh/assets/img/flags/li.png",
+        "lat": 47.1667,
+        "long": 9.5333,
+        "slug": "Liechtenstein"
+    },
+    "Lithuania": {
+        "iso3": "LTU",
+        "flag": "https://disease.sh/assets/img/flags/lt.png",
+        "lat": 56,
+        "long": 24,
+        "slug": "Lithuania"
+    },
+    "Luxembourg": {
+        "iso3": "LUX",
+        "flag": "https://disease.sh/assets/img/flags/lu.png",
+        "lat": 49.75,
+        "long": 6.1667,
+        "slug": "Luxembourg"
+    },
+    "MS Zaandam": {
+        "iso3": null,
+        "flag": "https://disease.sh/assets/img/flags/unknown.png",
+        "lat": 0,
+        "long": 0,
+        "slug": "MS-Zaandam"
+    },
+    "Macedonia": {
+        "iso3": "MKD",
+        "flag": "https://disease.sh/assets/img/flags/mk.png",
+        "lat": 41.8333,
+        "long": 22,
+        "slug": "Macedonia"
+    },
+    "Madagascar": {
+        "iso3": "MDG",
+        "flag": "https://disease.sh/assets/img/flags/mg.png",
+        "lat": -20,
+        "long": 47,
+        "slug": "Madagascar"
+    },
+    "Malawi": {
+        "iso3": "MWI",
+        "flag": "https://disease.sh/assets/img/flags/mw.png",
+        "lat": -13.5,
+        "long": 34,
+        "slug": "Malawi"
+    },
+    "Malaysia": {
+        "iso3": "MYS",
+        "flag": "https://disease.sh/assets/img/flags/my.png",
+        "lat": 2.5,
+        "long": 112.5,
+        "slug": "Malaysia"
+    },
+    "Maldives": {
+        "iso3": "MDV",
+        "flag": "https://disease.sh/assets/img/flags/mv.png",
+        "lat": 3.25,
+        "long": 73,
+        "slug": "Maldives"
+    },
+    "Mali": {
+        "iso3": "MLI",
+        "flag": "https://disease.sh/assets/img/flags/ml.png",
+        "lat": 17,
+        "long": -4,
+        "slug": "Mali"
+    },
+    "Malta": {
+        "iso3": "MLT",
+        "flag": "https://disease.sh/assets/img/flags/mt.png",
+        "lat": 35.8333,
+        "long": 14.5833,
+        "slug": "Malta"
+    },
+    "Marshall Islands": {
+        "iso3": "MHL",
+        "flag": "https://disease.sh/assets/img/flags/mh.png",
+        "lat": 9,
+        "long": 168,
+        "slug": "Marshall-Islands"
+    },
+    "Mauritania": {
+        "iso3": "MRT",
+        "flag": "https://disease.sh/assets/img/flags/mr.png",
+        "lat": 20,
+        "long": -12,
+        "slug": "Mauritania"
+    },
+    "Mauritius": {
+        "iso3": "MUS",
+        "flag": "https://disease.sh/assets/img/flags/mu.png",
+        "lat": -20.2833,
+        "long": 57.55,
+        "slug": "Mauritius"
+    },
+    "Mexico": {
+        "iso3": "MEX",
+        "flag": "https://disease.sh/assets/img/flags/mx.png",
+        "lat": 23,
+        "long": -102,
+        "slug": "Mexico"
+    },
+    "Micronesia": {
+        "iso3": "FSM",
+        "flag": "https://disease.sh/assets/img/flags/fm.png",
+        "lat": 6.9167,
+        "long": 158.25,
+        "slug": "Micronesia"
+    },
+    "Moldova": {
+        "iso3": "MDA",
+        "flag": "https://disease.sh/assets/img/flags/md.png",
+        "lat": 47,
+        "long": 29,
+        "slug": "Moldova"
+    },
+    "Monaco": {
+        "iso3": "MCO",
+        "flag": "https://disease.sh/assets/img/flags/mc.png",
+        "lat": 43.7333,
+        "long": 7.4,
+        "slug": "Monaco"
+    },
+    "Mongolia": {
+        "iso3": "MNG",
+        "flag": "https://disease.sh/assets/img/flags/mn.png",
+        "lat": 46,
+        "long": 105,
+        "slug": "Mongolia"
+    },
+    "Montenegro": {
+        "iso3": "MNE",
+        "flag": "https://disease.sh/assets/img/flags/me.png",
+        "lat": 42,
+        "long": 19,
+        "slug": "Montenegro"
+    },
+    "Morocco": {
+        "iso3": "MAR",
+        "flag": "https://disease.sh/assets/img/flags/ma.png",
+        "lat": 32,
+        "long": -5,
+        "slug": "Morocco"
+    },
+    "Mozambique": {
+        "iso3": "MOZ",
+        "flag": "https://disease.sh/assets/img/flags/mz.png",
+        "lat": -18.25,
+        "long": 35,
+        "slug": "Mozambique"
+    },
+    "Namibia": {
+        "iso3": "NAM",
+        "flag": "https://disease.sh/assets/img/flags/na.png",
+        "lat": -22,
+        "long": 17,
+        "slug": "Namibia"
+    },
+    "Nepal": {
+        "iso3": "NPL",
+        "flag": "https://disease.sh/assets/img/flags/np.png",
+        "lat": 28,
+        "long": 84,
+        "slug": "Nepal"
+    },
+    "Netherlands": {
+        "iso3": "NLD",
+        "flag": "https://disease.sh/assets/img/flags/nl.png",
+        "lat": 52.5,
+        "long": 5.75,
+        "slug": "Netherlands"
+    },
+    "New Zealand": {
+        "iso3": "NZL",
+        "flag": "https://disease.sh/assets/img/flags/nz.png",
+        "lat": -41,
+        "long": 174,
+        "slug": "New-Zealand"
+    },
+    "Nicaragua": {
+        "iso3": "NIC",
+        "flag": "https://disease.sh/assets/img/flags/ni.png",
+        "lat": 13,
+        "long": -85,
+        "slug": "Nicaragua"
+    },
+    "Niger": {
+        "iso3": "NER",
+        "flag": "https://disease.sh/assets/img/flags/ne.png",
+        "lat": 16,
+        "long": 8,
+        "slug": "Niger"
+    },
+    "Nigeria": {
+        "iso3": "NGA",
+        "flag": "https://disease.sh/assets/img/flags/ng.png",
+        "lat": 10,
+        "long": 8,
+        "slug": "Nigeria"
+    },
+    "Norway": {
+        "iso3": "NOR",
+        "flag": "https://disease.sh/assets/img/flags/no.png",
+        "lat": 62,
+        "long": 10,
+        "slug": "Norway"
+    },
+    "Oman": {
+        "iso3": "OMN",
+        "flag": "https://disease.sh/assets/img/flags/om.png",
+        "lat": 21,
+        "long": 57,
+        "slug": "Oman"
+    },
+    "Pakistan": {
+        "iso3": "PAK",
+        "flag": "https://disease.sh/assets/img/flags/pk.png",
+        "lat": 30,
+        "long": 70,
+        "slug": "Pakistan"
+    },
+    "Palau": {
+        "iso3": "PLW",
+        "flag": "https://disease.sh/assets/img/flags/pw.png",
+        "lat": 7.5,
+        "long": 134.5,
+        "slug": "Palau"
+    },
+    "Panama": {
+        "iso3": "PAN",
+        "flag": "https://disease.sh/assets/img/flags/pa.png",
+        "lat": 9,
+        "long": -80,
+        "slug": "Panama"
+    },
+    "Papua New Guinea": {
+        "iso3": "PNG",
+        "flag": "https://disease.sh/assets/img/flags/pg.png",
+        "lat": -6,
+        "long": 147,
+        "slug": "Papua-New-Guinea"
+    },
+    "Paraguay": {
+        "iso3": "PRY",
+        "flag": "https://disease.sh/assets/img/flags/py.png",
+        "lat": -23,
+        "long": -58,
+        "slug": "Paraguay"
+    },
+    "Peru": {
+        "iso3": "PER",
+        "flag": "https://disease.sh/assets/img/flags/pe.png",
+        "lat": -10,
+        "long": -76,
+        "slug": "Peru"
+    },
+    "Philippines": {
+        "iso3": "PHL",
+        "flag": "https://disease.sh/assets/img/flags/ph.png",
+        "lat": 13,
+        "long": 122,
+        "slug": "Philippines"
+    },
+    "Poland": {
+        "iso3": "POL",
+        "flag": "https://disease.sh/assets/img/flags/pl.png",
+        "lat": 52,
+        "long": 20,
+        "slug": "Poland"
+    },
+    "Portugal": {
+        "iso3": "PRT",
+        "flag": "https://disease.sh/assets/img/flags/pt.png",
+        "lat": 39.5,
+        "long": -8,
+        "slug": "Portugal"
+    },
+    "Qatar": {
+        "iso3": "QAT",
+        "flag": "https://disease.sh/assets/img/flags/qa.png",
+        "lat": 25.5,
+        "long": 51.25,
+        "slug": "Qatar"
+    },
+    "Romania": {
+        "iso3": "ROU",
+        "flag": "https://disease.sh/assets/img/flags/ro.png",
+        "lat": 46,
+        "long": 25,
+        "slug": "Romania"
+    },
+    "Russia": {
+        "iso3": "RUS",
+        "flag": "https://disease.sh/assets/img/flags/ru.png",
+        "lat": 60,
+        "long": 100,
+        "slug": "Russia"
+    },
+    "Rwanda": {
+        "iso3": "RWA",
+        "flag": "https://disease.sh/assets/img/flags/rw.png",
+        "lat": -2,
+        "long": 30,
+        "slug": "Rwanda"
+    },
+    "S. Korea": {
+        "iso3": "KOR",
+        "flag": "https://disease.sh/assets/img/flags/kr.png",
+        "lat": 37,
+        "long": 127.5,
+        "slug": "S.-Korea"
+    },
+    "Saint Kitts and Nevis": {
+        "iso3": "KNA",
+        "flag": "https://disease.sh/assets/img/flags/kn.png",
+        "lat": 17.3333,
+        "long": -62.75,
+        "slug": "Saint-Kitts-and-Nevis"
+    },
+    "Saint Lucia": {
+        "iso3": "LCA",
+        "flag": "https://disease.sh/assets/img/flags/lc.png",
+        "lat": 13.8833,
+        "long": -61.1333,
+        "slug": "Saint-Lucia"
+    },
+    "Saint Vincent and the Grenadines": {
+        "iso3": "VCT",
+        "flag": "https://disease.sh/assets/img/flags/vc.png",
+        "lat": 13.25,
+        "long": -61.2,
+        "slug": "Saint-Vincent-and-the-Grenadines"
+    },
+    "Samoa": {
+        "iso3": "WSM",
+        "flag": "https://disease.sh/assets/img/flags/ws.png",
+        "lat": -13.5833,
+        "long": -172.3333,
+        "slug": "Samoa"
+    },
+    "San Marino": {
+        "iso3": "SMR",
+        "flag": "https://disease.sh/assets/img/flags/sm.png",
+        "lat": 43.7667,
+        "long": 12.4167,
+        "slug": "San-Marino"
+    },
+    "Sao Tome and Principe": {
+        "iso3": "STP",
+        "flag": "https://disease.sh/assets/img/flags/st.png",
+        "lat": 1,
+        "long": 7,
+        "slug": "Sao-Tome-and-Principe"
+    },
+    "Saudi Arabia": {
+        "iso3": "SAU",
+        "flag": "https://disease.sh/assets/img/flags/sa.png",
+        "lat": 25,
+        "long": 45,
+        "slug": "Saudi-Arabia"
+    },
+    "Senegal": {
+        "iso3": "SEN",
+        "flag": "https://disease.sh/assets/img/flags/sn.png",
+        "lat": 14,
+        "long": -14,
+        "slug": "Senegal"
+    },
+    "Serbia": {
+        "iso3": "SRB",
+        "flag": "https://disease.sh/assets/img/flags/rs.png",
+        "lat": 44,
+        "long": 21,
+        "slug": "Serbia"
+    },
+    "Seychelles": {
+        "iso3": "SYC",
+        "flag": "https://disease.sh/assets/img/flags/sc.png",
+        "lat": -4.5833,
+        "long": 55.6667,
+        "slug": "Seychelles"
+    },
+    "Sierra Leone": {
+        "iso3": "SLE",
+        "flag": "https://disease.sh/assets/img/flags/sl.png",
+        "lat": 8.5,
+        "long": -11.5,
+        "slug": "Sierra-Leone"
+    },
+    "Singapore": {
+        "iso3": "SGP",
+        "flag": "https://disease.sh/assets/img/flags/sg.png",
+        "lat": 1.3667,
+        "long": 103.8,
+        "slug": "Singapore"
+    },
+    "Slovakia": {
+        "iso3": "SVK",
+        "flag": "https://disease.sh/assets/img/flags/sk.png",
+        "lat": 48.6667,
+        "long": 19.5,
+        "slug": "Slovakia"
+    },
+    "Slovenia": {
+        "iso3": "SVN",
+        "flag": "https://disease.sh/assets/img/flags/si.png",
+        "lat": 46,
+        "long": 15,
+        "slug": "Slovenia"
+    },
+    "Solomon Islands": {
+        "iso3": "SLB",
+        "flag": "https://disease.sh/assets/img/flags/sb.png",
+        "lat": -8,
+        "long": 159,
+        "slug": "Solomon-Islands"
+    },
+    "Somalia": {
+        "iso3": "SOM",
+        "flag": "https://disease.sh/assets/img/flags/so.png",
+        "lat": 10,
+        "long": 49,
+        "slug": "Somalia"
+    },
+    "South Africa": {
+        "iso3": "ZAF",
+        "flag": "https://disease.sh/assets/img/flags/za.png",
+        "lat": -29,
+        "long": 24,
+        "slug": "South-Africa"
+    },
+    "South Sudan": {
+        "iso3": "SSD",
+        "flag": "https://disease.sh/assets/img/flags/ss.png",
+        "lat": 6.8769,
+        "long": 31.3069,
+        "slug": "South-Sudan"
+    },
+    "Spain": {
+        "iso3": "ESP",
+        "flag": "https://disease.sh/assets/img/flags/es.png",
+        "lat": 40,
+        "long": -4,
+        "slug": "Spain"
+    },
+    "Sri Lanka": {
+        "iso3": "LKA",
+        "flag": "https://disease.sh/assets/img/flags/lk.png",
+        "lat": 7,
+        "long": 81,
+        "slug": "Sri-Lanka"
+    },
+    "Sudan": {
+        "iso3": "SDN",
+        "flag": "https://disease.sh/assets/img/flags/sd.png",
+        "lat": 15,
+        "long": 30,
+        "slug": "Sudan"
+    },
+    "Suriname": {
+        "iso3": "SUR",
+        "flag": "https://disease.sh/assets/img/flags/sr.png",
+        "lat": 4,
+        "long": -56,
+        "slug": "Suriname"
+    },
+    "Swaziland": {
+        "iso3": "SWZ",
+        "flag": "https://disease.sh/assets/img/flags/sz.png",
+        "lat": -26.5,
+        "long": 31.5,
+        "slug": "Swaziland"
+    },
+    "Sweden": {
+        "iso3": "SWE",
+        "flag": "https://disease.sh/assets/img/flags/se.png",
+        "lat": 62,
+        "long": 15,
+        "slug": "Sweden"
+    },
+    "Switzerland": {
+        "iso3": "CHE",
+        "flag": "https://disease.sh/assets/img/flags/ch.png",
+        "lat": 47,
+        "long": 8,
+        "slug": "Switzerland"
+    },
+    "Syrian Arab Republic": {
+        "iso3": "SYR",
+        "flag": "https://disease.sh/assets/img/flags/sy.png",
+        "lat": 35,
+        "long": 38,
+        "slug": "Syrian-Arab-Republic"
+    },
+    "Taiwan": {
+        "iso3": "TWN",
+        "flag": "https://disease.sh/assets/img/flags/tw.png",
+        "lat": 23.5,
+        "long": 121,
+        "slug": "Taiwan"
+    },
+    "Tajikistan": {
+        "iso3": "TJK",
+        "flag": "https://disease.sh/assets/img/flags/tj.png",
+        "lat": 39,
+        "long": 71,
+        "slug": "Tajikistan"
+    },
+    "Tanzania": {
+        "iso3": "TZA",
+        "flag": "https://disease.sh/assets/img/flags/tz.png",
+        "lat": -6,
+        "long": 35,
+        "slug": "Tanzania"
+    },
+    "Thailand": {
+        "iso3": "THA",
+        "flag": "https://disease.sh/assets/img/flags/th.png",
+        "lat": 15,
+        "long": 100,
+        "slug": "Thailand"
+    },
+    "Timor-Leste": {
+        "iso3": "TLS",
+        "flag": "https://disease.sh/assets/img/flags/tl.png",
+        "lat": -8.55,
+        "long": 125.5167,
+        "slug": "Timor-Leste"
+    },
+    "Togo": {
+        "iso3": "TGO",
+        "flag": "https://disease.sh/assets/img/flags/tg.png",
+        "lat": 8,
+        "long": 1.1667,
+        "slug": "Togo"
+    },
+    "Tonga": {
+        "iso3": "TON",
+        "flag": "https://disease.sh/assets/img/flags/to.png",
+        "lat": -20,
+        "long": -175,
+        "slug": "Tonga"
+    },
+    "Trinidad and Tobago": {
+        "iso3": "TTO",
+        "flag": "https://disease.sh/assets/img/flags/tt.png",
+        "lat": 11,
+        "long": -61,
+        "slug": "Trinidad-and-Tobago"
+    },
+    "Tunisia": {
+        "iso3": "TUN",
+        "flag": "https://disease.sh/assets/img/flags/tn.png",
+        "lat": 34,
+        "long": 9,
+        "slug": "Tunisia"
+    },
+    "Turkey": {
+        "iso3": "TUR",
+        "flag": "https://disease.sh/assets/img/flags/tr.png",
+        "lat": 39,
+        "long": 35,
+        "slug": "Turkey"
+    },
+    "UAE": {
+        "iso3": "ARE",
+        "flag": "https://disease.sh/assets/img/flags/ae.png",
+        "lat": 24,
+        "long": 54,
+        "slug": "UAE"
+    },
+    "UK": {
+        "iso3": "GBR",
+        "flag": "https://disease.sh/assets/img/flags/gb.png",
+        "lat": 54,
+        "long": -2,
+        "slug": "UK"
+    },
+    "USA": {
+        "iso3": "USA",
+        "flag": "https://disease.sh/assets/img/flags/us.png",
+        "lat": 38,
+        "long": -97,
+        "slug": "USA"
+    },
+    "Uganda": {
+        "iso3": "UGA",
+        "flag": "https://disease.sh/assets/img/flags/ug.png",
+        "lat": 1,
+        "long": 32,
+        "slug": "Uganda"
+    },
+    "Ukraine": {
+        "iso3": "UKR",
+        "flag": "https://disease.sh/assets/img/flags/ua.png",
+        "lat": 49,
+        "long": 32,
+        "slug": "Ukraine"
+    },
+    "Uruguay": {
+        "iso3": "URY",
+        "flag": "https://disease.sh/assets/img/flags/uy.png",
+        "lat": -33,
+        "long": -56,
+        "slug": "Uruguay"
+    },
+    "Uzbekistan": {
+        "iso3": "UZB",
+        "flag": "https://disease.sh/assets/img/flags/uz.png",
+        "lat": 41,
+        "long": 64,
+        "slug": "Uzbekistan"
+    },
+    "Vanuatu": {
+        "iso3": "VUT",
+        "flag": "https://disease.sh/assets/img/flags/vu.png",
+        "lat": -16,
+        "long": 167,
+        "slug": "Vanuatu"
+    },
+    "Venezuela": {
+        "iso3": "VEN",
+        "flag": "https://disease.sh/assets/img/flags/ve.png",
+        "lat": 8,
+        "long": -66,
+        "slug": "Venezuela"
+    },
+    "Vietnam": {
+        "iso3": "VNM",
+        "flag": "https://disease.sh/assets/img/flags/vn.png",
+        "lat": 21,
+        "long": 105.8,
+        "slug": "Vietnam"
+    },
+    "Yemen": {
+        "iso3": "YEM",
+        "flag": "https://disease.sh/assets/img/flags/ye.png",
+        "lat": 15,
+        "long": 48,
+        "slug": "Yemen"
+    },
+    "Zambia": {
+        "iso3": "ZMB",
+        "flag": "https://disease.sh/assets/img/flags/zm.png",
+        "lat": -15,
+        "long": 30,
+        "slug": "Zambia"
+    },
+    "Zimbabwe": {
+        "iso3": "ZWE",
+        "flag": "https://disease.sh/assets/img/flags/zw.png",
+        "lat": -20,
+        "long": 30,
+        "slug": "Zimbabwe"
+    }
+}
