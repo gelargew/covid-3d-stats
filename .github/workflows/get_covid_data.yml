@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'main'
+      - 'workflow-testing'
 jobs:
   Hello-Pyton:
       runs-on: ubuntu-latest

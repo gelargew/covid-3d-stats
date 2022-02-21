@@ -8,6 +8,7 @@ import { useEffect, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import HistoricalCases from "../components/HistoricalCases";
 import { Reflector } from "../components/Reflector";
+import historical_all from '../../covid_data/countries_info.json'
 
 export default function Country({ data, countryName }: InferGetStaticPropsType<typeof getStaticProps>) {
     const casesData = data ? getNewCasesArray(data.cases) : null
@@ -16,7 +17,8 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
     return (
         <>
             <main>
-                <h1>COVID-19 PANDEMIC STATISTICS</h1>
+                <button onClick={() => console.log(historical_all)}>SSEEEE</button>
+{/*                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
                 <h2>{countryName}</h2>
                 {
                     data ?
@@ -41,7 +43,7 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
                     <>
                         <h2>Failed to get data from &quot;https://disease.sh/v3/covid-19/historical/{countryName}&quot;</h2>
                     </>
-                }
+                } */}
 
                 
             </main>
