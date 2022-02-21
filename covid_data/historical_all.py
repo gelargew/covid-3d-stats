@@ -1,9 +1,13 @@
 # %%
-import requests
 import json
+from pathlib import Path
+import os
+import requests
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-with open('countries_info.json', 'r') as f:
+with open(os.path.join(BASE_DIR, 'covid_data', 'countries_info.json'), 'r') as f:
     countries = json.load(f)
 
 ls = ','.join([country for country in countries])
@@ -26,7 +30,7 @@ for country in data:
 
 
 # %%
-with open('historical_all.json', 'w') as f:
+with open(os.path.join(BASE_DIR, 'covid_data', 'historical_all.json'), 'w') as f:
     json.dump(historical_all, f, indent=4)
 
 
