@@ -24,6 +24,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
     const lastUpdated = useMemo(() => casesData[casesData.length -1].title, [data])
 
 
+
     return (
         <>
             <main>

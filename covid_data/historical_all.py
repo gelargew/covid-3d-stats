@@ -3,7 +3,7 @@ import requests
 import json
 
 
-with open('/covid-data/countries_info.json', 'r') as f:
+with open('countries_info.json', 'r') as f:
     countries = json.load(f)
 
 ls = ','.join([country for country in countries])
@@ -26,7 +26,7 @@ for country in data:
 
 
 # %%
-with open('/covid_data/historical_all.json', 'w') as f:
+with open('historical_all.json', 'w') as f:
     json.dump(historical_all, f, indent=4)
 
 
