@@ -16,7 +16,7 @@ jobs:
         - run: |
             python -m pip install --upgrade pip
             pip install -r covid_data/requirements.txt
-            python covid_data/historical_all.py
+            python nested/nested.py
         - name: push and commit to 
           run: |
             git config --global user.email "gelargew@gmail.com"
