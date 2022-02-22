@@ -26,7 +26,7 @@ for country in data:
             }
             filename = countries[country_name]['slug']
             pathname = os.path.join(BASE_DIR, 'covid_data', 'historical_all', f'{filename}.json')
-            os.makedirs(os.path.dirname(filename), exist_ok=True)
+            os.makedirs(os.path.dirname(pathname), exist_ok=True)
             with open(pathname, 'w') as f:
                 json.dump(output, f, indent=4)
         except (ValueError, KeyError):
