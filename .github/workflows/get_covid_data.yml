@@ -9,14 +9,15 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-        - name: Running Python
+        - name: Setup python
           uses: actions/setup-python@v2
           with:
             python-version: '3.10'
-        - run: |
+        - name: Fetching and processing historical data from JHUCSSE..
+          run: |
             pip install -r covid_data/requirements.txt
             python covid_data/historical_all.py
-        - name: push and commit to 
+        - name: Pushing data to the repo..
           run: |
             git config --global user.email "gelargew@gmail.com"
             git config --global user.name "bot"
