@@ -10,14 +10,13 @@ import * as THREE from 'three'
 import '../styles/index.module.css'
 
 
-import HistoricalCases from "../../covid_data/historical_all.json"
 
 
 const AXIS_ANGLE = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(-1, 0.5, 0.3), Math.PI/6)
 const q = new THREE.Quaternion(0, 0, 0)
 const p = new THREE.Vector3(0, 10, 30)
 
-export default function Home({ jsonData }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ jsonData, d }: InferGetStaticPropsType<typeof getStaticProps>) {
 
     const data: TimeSeriesType = jsonData
     const casesData = getNewCasesArray(data.cases)
@@ -28,7 +27,7 @@ export default function Home({ jsonData }: InferGetStaticPropsType<typeof getSta
     return (
         <>
             <main>
-                <button onClick={() => console.log(HistoricalCases)}>HistoricalCases</button>
+                <button onClick={() => console.log(d)}>HistoricalCases</button>
 
 {/*                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
                 <h2>global daily time series data</h2>
@@ -60,8 +59,11 @@ const getStaticProps: GetStaticProps = async () => {
     const res = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=360')
     const jsonData: TimeSeriesType = await res.json()
 /*     const jsonData: TimeSeriesType = historical */
+    const a = await import('../../covid_data/countries_info.json')
+    const d = JSON.parse(JSON.stringify(a))
 
-    return { props: { jsonData }, revalidate: 60*60*24 }
+
+    return { props: { jsonData, d}, revalidate: 60*60*24 }
 }
 
 

@@ -7,8 +7,7 @@ import { getNewCasesArray } from "../utils/toArray";
 import { useEffect, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import HistoricalCases from "../components/HistoricalCases";
-import { Reflector } from "../components/Reflector";
-import historical_all from '../../covid_data/countries_info.json'
+
 
 export default function Country({ data, countryName }: InferGetStaticPropsType<typeof getStaticProps>) {
     const casesData = data ? getNewCasesArray(data.cases) : null
@@ -17,7 +16,7 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
     return (
         <>
             <main>
-                <button onClick={() => console.log(historical_all)}>SSEEEE</button>
+                <button onClick={() => console.log(data)}>SSEEEE</button>
 {/*                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
                 <h2>{countryName}</h2>
                 {
@@ -53,7 +52,7 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
 }
 
 interface Props {
-    data?: TimeSeriesType,
+    data?: any,
     lastUpdated?: string,
     countryName: string
 }
@@ -80,19 +79,10 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
             break
         }
     }
-    const url = `https://disease.sh/v3/covid-19/historical/${iso3}?lastdays=360`
-    const res = await fetch(url)
-    const jsonData: CountryHistoricalType = await res.json()
-    
-    if (!res.ok) {
-        return {
-            notFound: true,
-            revalidate: 60*60*6
-        }
-        /* throw new Error(`Failed to get data from "${url}", received status ${res.status}`) */
-    }
 
-    const data = jsonData.timeline
+    
+    const data = await import('../../covid_data/countries_info.json')
+
 
     
     return {
