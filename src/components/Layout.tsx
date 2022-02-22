@@ -18,11 +18,11 @@ export default function Layout() {
         <nav>
             <button>{selected}</button>
             <Link href='/'>Worldwide</Link>
-            {Object.keys(countries).map(country => 
+{/*             {Object.keys(countries).map(country => 
             // @ts-ignore
                 <Link href={`/${countries[country].slug}`} key={country}>
                     {country}
-                </Link>)}
+                </Link>)} */}
         </nav>
     )
 }
