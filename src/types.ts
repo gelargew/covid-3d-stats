@@ -5,7 +5,7 @@ interface CasesType {
 interface TimeSeriesType {
     cases: CasesType,
     deaths: CasesType,
-    recovered: CasesType
+    recovered?: CasesType
 }
 
 interface NewCasesType {

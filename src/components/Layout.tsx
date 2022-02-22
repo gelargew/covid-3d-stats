@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useEffect, useLayoutEffect, useMemo } from "react"
 import { allCountries, allCountriesProps } from "../storage"
 import { fetchSummary } from "../utils/fetch"
-import countries from '../countries.json'
+import countries from '../../covid_data/countries_info.json'
 import { useRouter } from "next/router"
 
 export default function Layout() {
@@ -16,20 +16,12 @@ export default function Layout() {
 
     return (
         <nav>
-            <button>{selected}</button>
             <Link href='/'>Worldwide</Link>
-{/*             {Object.keys(countries).map(country => 
+            {Object.keys(countries).map(country => 
             // @ts-ignore
                 <Link href={`/${countries[country].slug}`} key={country}>
                     {country}
-                </Link>)} */}
+                </Link>)}
         </nav>
-    )
-}
-
-const CountryLink = ({ country }: { country: allCountriesProps}) => {
-
-    return (
-        <h1>asd</h1>
     )
 }

@@ -1,12 +1,12 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import Layout from '../components/Layout'
 import { ParsedUrlQuery } from "querystring";
-import countries from '../countries.json'
+import countries from '../../covid_data/countries_info.json'
 import { TimeSeriesType } from "../types";
 import { getNewCasesArray } from "../utils/toArray";
-import { useEffect, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import HistoricalCases from "../components/HistoricalCases";
+import { Reflector } from "../components/Reflector";
+
 
 
 export default function Country({ data, countryName }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -16,8 +16,7 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
     return (
         <>
             <main>
-                <button onClick={() => console.log(data)}>SSEEEE</button>
-{/*                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
+                <h1>COVID-19 PANDEMIC STATISTICS</h1>
                 <h2>{countryName}</h2>
                 {
                     data ?
@@ -34,7 +33,7 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
                             <div className="canvas-layout">
                                 <div className="bar-desc">
                                 </div>
-                                <button className='back-button' >BACK</button>
+                                <button className='back-button' ><img src='/icon-back.svg' /></button>
                             </div>
 
                         </section>                   
@@ -42,7 +41,7 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
                     <>
                         <h2>Failed to get data from &quot;https://disease.sh/v3/covid-19/historical/{countryName}&quot;</h2>
                     </>
-                } */}
+                }
 
                 
             </main>
@@ -51,8 +50,10 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
     )
 }
 
+
+
 interface Props {
-    data?: any,
+    data: TimeSeriesType,
     lastUpdated?: string,
     countryName: string
 }
@@ -61,27 +62,15 @@ interface Params extends ParsedUrlQuery {
     country: string
 }
 
-interface CountryHistoricalType {
-    country: string,
-    province : string[],
-    timeline: TimeSeriesType
-}
+
 
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
     const params = context.params!
     const { country } = params
     const countryName = country.replace(/-/g, ' ')
-    let iso3 = ''
-    for (const c in countries) {      
-        if (c === countryName) {
-            //@ts-ignore
-            iso3 = countries[countryName].iso3
-            break
-        }
-    }
+    const res = await import(`../../covid_data/historical_all/${country}.json`)
+    const data: TimeSeriesType = JSON.parse(JSON.stringify(res))
 
-    
-    const data = await import('../../covid_data/countries_info.json')
 
 
     
@@ -104,5 +93,5 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 
 
 
-    return { paths: [], fallback: 'blocking' }
+    return { paths, fallback: 'blocking' }
 }

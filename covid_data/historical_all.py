@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 with open(os.path.join(BASE_DIR, 'covid_data', 'countries_info.json'), 'r') as f:
     countries = json.load(f)
 
-ls = ','.join([country for country in countries])
+ls = ','.join([country for country in countries][:5])
 url = f'https://disease.sh/v3/covid-19/historical/{ls}?lastdays=30'
 data = requests.get(url)
 data = json.loads(data.text)
