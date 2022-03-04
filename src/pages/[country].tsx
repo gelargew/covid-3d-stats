@@ -6,18 +6,22 @@ import { getNewCasesArray } from "../utils/toArray";
 import { Canvas } from "@react-three/fiber";
 import HistoricalCases from "../components/HistoricalCases";
 import { Reflector } from "../components/Reflector";
+import Head from "next/head";
 
 
 
-export default function Country({ data, countryName }: InferGetStaticPropsType<typeof getStaticProps>) {
-    const casesData = data ? getNewCasesArray(data.cases) : null
-    const lastUpdated = casesData ? casesData[casesData.length -1].title : null
+export default function Country({ data, countryInfo }: InferGetStaticPropsType<typeof getStaticProps>) {
+    const casesData = getNewCasesArray(data.cases)
+    const lastUpdated = new Date(casesData[casesData.length -1].title).toDateString()
 
     return (
         <>
+            <Head>
+                <title>{countryInfo.name}</title>
+            </Head>
             <main>
                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
-                <h2>{countryName}</h2>
+                <h2>{countryInfo.name}</h2>
                 {
                     data ?
                     <>
@@ -39,7 +43,7 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
                         </section>                   
                     </>:
                     <>
-                        <h2>Failed to get data from &quot;https://disease.sh/v3/covid-19/historical/{countryName}&quot;</h2>
+                        <h2>Failed to get data from &quot;https://disease.sh/v3/covid-19/historical/{countryInfo.name}&quot;</h2>
                     </>
                 }
 
@@ -55,7 +59,12 @@ export default function Country({ data, countryName }: InferGetStaticPropsType<t
 interface Props {
     data: TimeSeriesType,
     lastUpdated?: string,
-    countryName: string
+    countryInfo: {
+        name: string,
+        slug: string,
+        iso3: string,
+        flagURL: string
+    }
 }
 
 interface Params extends ParsedUrlQuery {
@@ -68,6 +77,8 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
     const params = context.params!
     const { country } = params
     const countryName = country.replace(/-/g, ' ')
+    //@ts-ignore
+    const countryInfo = countries[countryName]
     const res = await import(`../../covid_data/historical_all/${country}.json`)
     const data: TimeSeriesType = JSON.parse(JSON.stringify(res))
 
@@ -75,7 +86,15 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
 
     
     return {
-        props: { data, countryName },
+        props: { 
+            data, 
+            countryInfo: {
+                name: countryName,
+                slug: country,
+                iso3: countryInfo.slug,
+                flagURL: countryInfo.flag
+            } 
+        },
         revalidate: 60*60*6
     }
 }

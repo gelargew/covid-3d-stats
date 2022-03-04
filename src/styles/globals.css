@@ -102,3 +102,25 @@ button.back-button {
 .bar-desc>p {
   margin: 0.2rem;
 }
+
+
+.countries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.countries-list span {
+  font-size: large;
+  height: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  place-items: center;
+}
+
+.countries-list img {
+  height: 70%;
+  width: 1.5rem;
+}

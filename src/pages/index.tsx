@@ -13,13 +13,13 @@ import HistoricalCases from "../components/HistoricalCases"
 export default function Home({ jsonData, d }: InferGetStaticPropsType<typeof getStaticProps>) {
     const data: TimeSeriesType = jsonData
     const casesData = getNewCasesArray(data.cases)
-    const lastUpdated = useMemo(() => casesData[casesData.length -1].title, [data])
+    const lastUpdated = useMemo(() => new Date(casesData[casesData.length -1].title).toDateString(), [data])
 
     return (
         <>
             <main>
                 <h1>COVID-19 PANDEMIC STATISTICS</h1>
-                <h2>global daily time series data</h2>
+                <h2>Worldwide</h2>
                 <p><small>last updated: {lastUpdated}</small></p>
                 <section>
 
