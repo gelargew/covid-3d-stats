@@ -489,13 +489,6 @@
         "long": -10,
         "slug": "Guinea"
     },
-    "Guinea-Bissau": {
-        "iso3": "GNB",
-        "flag": "https://disease.sh/assets/img/flags/gw.png",
-        "lat": 12,
-        "long": -15,
-        "slug": "Guinea-Bissau"
-    },
     "Guyana": {
         "iso3": "GUY",
         "flag": "https://disease.sh/assets/img/flags/gy.png",
@@ -1202,13 +1195,6 @@
         "lat": 15,
         "long": 100,
         "slug": "Thailand"
-    },
-    "Timor-Leste": {
-        "iso3": "TLS",
-        "flag": "https://disease.sh/assets/img/flags/tl.png",
-        "lat": -8.55,
-        "long": 125.5167,
-        "slug": "Timor-Leste"
     },
     "Togo": {
         "iso3": "TGO",
