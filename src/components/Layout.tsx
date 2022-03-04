@@ -1,3 +1,4 @@
+//@ts-nocheck
 import Link from "next/link"
 import { useRouter } from "next/router"
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
@@ -21,10 +22,8 @@ export default function Layout() {
         for (const el of countriesElements) {
             console.log(el.textContent)
             if (el.textContent?.toUpperCase().startsWith(query)) {
-                //@ts-ignore
                 el.style.display = 'block'
             }
-            //@ts-ignore
             else el.style.display = 'none'
         }
     }
