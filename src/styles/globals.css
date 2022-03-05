@@ -66,7 +66,9 @@ main>section {
 nav {
   background: black;
   z-index: 10;
-
+  position: fixed;
+  left: 0;
+  top: 0;
   height: 100vh;
   overflow: auto;
   width: 300px;
@@ -75,8 +77,26 @@ nav {
   place-items: center;
   justify-content: flex-start;
   gap: 0.4rem;
+  padding-top: 2rem;
 }
 
+nav.nav-hidden {
+  height: auto;
+  padding-top: 0.5rem;
+}
+
+nav.nav-hidden .countries-list {
+  display: none;
+}
+
+nav>p {
+  display: flex;
+  place-items: center;
+  transition: background-color 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 0.3rem;
+  border-radius: 4px;
+  gap: 1rem;
+}
 
 button.back-button {
   width: 60%;
@@ -109,7 +129,12 @@ button.back-button {
   flex-direction: column;
   gap: 0.1rem;
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding-top: 1rem;
+}
+
+.countries-list a {
+  height: 100%;
+  overflow: hidden;
 }
 
 .countries-list span {
@@ -118,9 +143,20 @@ button.back-button {
   display: flex;
   gap: 1rem;
   place-items: center;
+  transition: background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 2px;
+  padding: 0 0.5rem;
+  overflow: hidden;
+}
+
+.countries-list span:hover, nav>p:hover {
+  background: rgb(60, 148, 133);
+  cursor: pointer;
 }
 
 .countries-list img {
   height: 70%;
   width: 1.5rem;
 }
+
+

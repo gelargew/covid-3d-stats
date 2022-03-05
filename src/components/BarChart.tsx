@@ -58,11 +58,6 @@ export default function BarChart({
 
 
 
-
-    useFrame((state, dt) => {
-
-    })
-
     return (
         <group scale={0.2} position={position} rotation={rotation}  >          
             <Suspense fallback={null}>

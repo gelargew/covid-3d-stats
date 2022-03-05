@@ -8,30 +8,38 @@ import countries from '../../covid_data/countries_info.json'
 export default function Layout() {
     const ref = useRef<HTMLDivElement>(null!)
     const [navClass, setNavClass] = useState('')
-    const {pathname} = useRouter()
+    const router = useRouter()
 
 
 
     useEffect(() => {
         setNavClass('nav-hidden')
-    }, [pathname])
+        console.log(router)
+    }, [router.asPath])
 
     const handleSearch = (e:React.KeyboardEvent<HTMLInputElement>) => {
         const query = (e.target as HTMLInputElement).value.toUpperCase()
         const countriesElements = Array.from(ref.current.children)
         for (const el of countriesElements) {
-            console.log(el.textContent)
             if (el.textContent?.toUpperCase().startsWith(query)) {
-                el.style.display = 'block'
+                el.style.display = 'flex'
             }
             else el.style.display = 'none'
         }
+        setNavClass('')
     }
 
     return (
         <nav className={navClass}>
-
-            <input type='search' placeholder="Search" onKeyUp={handleSearch}/>
+            {navClass === 'nav-hidden' ? 
+            <p onClick={() => setNavClass('')}>
+                {router.query.country || 'Worldwide'}
+                <img src='/icon-arrow-bottom.svg' />
+            </p>
+            :
+            <input type='search' placeholder="Search" onFocus={() => setNavClass('')} onChange={handleSearch}/>
+            }
+            
 
             <div className="countries-list" ref={ref}>
                 <span>
@@ -39,7 +47,7 @@ export default function Layout() {
                     <Link href='/'>Worldwide</Link>
                 </span>
                 {Object.keys(countries).map(country =>                
-                <span key={country}>
+                <span onClick={() => setNavClass('nav-hidden')} key={country}>
                     <img src={countries[country].flag} alt={country} title={country} />
                     <Link href={`/${countries[country].slug}`} >
                         {country}
