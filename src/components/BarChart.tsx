@@ -56,6 +56,18 @@ export default function BarChart({
         ]
     }, [data])
 
+    const xLabels = useMemo(() => {
+        const marg = Math.floor(data.length/6)
+        const quarter = [marg, marg*2, marg*3, marg*4, marg*5, marg*6]
+        const labels = quarter.map(mg => {
+            return {
+                position: (mg - data.length/2 -5)*width,
+                value: data[mg].title
+            }
+        })
+        return labels
+    },[data])
+
 
 
     return (
@@ -96,6 +108,20 @@ export default function BarChart({
                         >{text[2]}</Text>
                     </group>
     
+                </group>
+
+                <group position={[0, 0.5, 3]} >
+                    {xLabels.map(label => (
+                        <Text
+                        key={label.value}
+                        fontSize={1}
+                        rotation={[0, Math.PI/4, 0]}
+                        position={[label.position, 0, 0]}
+                        strokeWidth={5}
+                        >
+                            {label.value}
+                        </Text>
+                    ))}
                 </group>
 
                 <Text

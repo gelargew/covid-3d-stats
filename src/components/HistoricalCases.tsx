@@ -5,7 +5,7 @@ import { TimeSeriesType } from "../types"
 import { getNewCasesArray } from "../utils/toArray"
 import BarChart from "./BarChart"
 
-const BAR_QUATERNION = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(-1, 0.5, 0.3), Math.PI/6)
+const BAR_QUATERNION = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(-2, 0.5, 0.3), Math.PI/6)
 const q = new THREE.Quaternion(0, 0, 0)
 const p = new THREE.Vector3(0, 10, 30)
 

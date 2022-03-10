@@ -20,13 +20,11 @@ export default function Country({ data, countryInfo }: InferGetStaticPropsType<t
                 <title>{countryInfo.name}</title>
             </Head>
             <main>
-                <h1>COVID-19 PANDEMIC STATISTICS</h1>
-                <h2>{countryInfo.name}</h2>
                 {
                     data ?
                     <>
                         <p><small>last updated: {lastUpdated}</small></p>
-                        <section>
+                        <section className="section-chart">
 
                             <Canvas>
                                 <ambientLight />

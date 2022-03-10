@@ -14,7 +14,6 @@ export default function Layout() {
 
     useEffect(() => {
         setNavClass('nav-hidden')
-        console.log(router)
     }, [router.asPath])
 
     const handleSearch = (e:React.KeyboardEvent<HTMLInputElement>) => {
@@ -31,29 +30,37 @@ export default function Layout() {
 
     return (
         <nav className={navClass}>
+            <h1>COVID STATS</h1>
             {navClass === 'nav-hidden' ? 
             <p onClick={() => setNavClass('')}>
                 {router.query.country || 'Worldwide'}
                 <img src='/icon-arrow-bottom.svg' />
             </p>
             :
-            <input type='search' placeholder="Search" onFocus={() => setNavClass('')} onChange={handleSearch}/>
+            <>
+                <p onClick={() => setNavClass('nav-hidden')}>
+                {router.query.country || 'Worldwide'}
+                <img src='/icon-arrow-bottom.svg' />     
+                </p>
+                <input type='search' placeholder="Search" onFocus={() => setNavClass('')} onChange={handleSearch}/>
+            </>
+            
             }
             
 
-            <div className="countries-list" ref={ref}>
-                <span>
+            <ul className="countries-list" ref={ref}>
+                <li>
                     <img src='/globe.svg' title='worldwide' />
                     <Link href='/'>Worldwide</Link>
-                </span>
+                </li>
                 {Object.keys(countries).map(country =>                
-                <span onClick={() => setNavClass('nav-hidden')} key={country}>
+                <li onClick={() => setNavClass('nav-hidden')} key={country}>
                     <img src={countries[country].flag} alt={country} title={country} />
                     <Link href={`/${countries[country].slug}`} >
                         {country}
                     </Link>
-                </span>)}
-            </div>
+                </li>)}
+            </ul>
             
 
         </nav>
