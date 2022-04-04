@@ -49,7 +49,7 @@ const getStaticProps: GetStaticProps = async () => {
     const d = JSON.parse(JSON.stringify(a))
 
 
-    return { props: { jsonData, d}, revalidate: 60*60*24 }
+    return { props: { jsonData, d} }
 }
 
 

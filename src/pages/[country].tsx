@@ -92,8 +92,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
                 iso3: countryInfo.slug,
                 flagURL: countryInfo.flag
             } 
-        },
-        revalidate: 60*60*6
+        }
     }
 }
 
@@ -110,5 +109,5 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 
 
 
-    return { paths, fallback: 'blocking' }
+    return { paths, fallback: true }
 }
