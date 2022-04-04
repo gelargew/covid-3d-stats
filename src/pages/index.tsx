@@ -3,6 +3,7 @@ import React, { useMemo } from "react"
 import {  TimeSeriesType } from '../types'
 import { getNewCasesArray } from '../utils/toArray'
 import { Canvas, ThreeEvent, useFrame } from '@react-three/fiber'
+import Head  from "next/head"
 
 import { Reflector } from "../components/Reflector"
 import * as THREE from 'three'
@@ -17,6 +18,9 @@ export default function Home({ jsonData, d }: InferGetStaticPropsType<typeof get
 
     return (
         <>
+            <Head>
+                <title>Covid stats | Worldwide</title>
+            </Head>
             <main>
                 <p><small>last updated: {lastUpdated}</small></p>
                 <section className="section-chart">
