@@ -1,9 +1,13 @@
 name: 'actions'
 on:
+  push:
+    branches:
+      - 'main'
+      - 'workflow-testing'
   schedule:
     - cron: '0 2 * * *'
 jobs:
-  Hello-Pyton:
+  Fetching-data:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
