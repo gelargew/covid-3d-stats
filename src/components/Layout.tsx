@@ -7,7 +7,7 @@ import countries from '../../covid_data/countries_info.json'
 
 export default function Layout() {
     const ref = useRef<HTMLDivElement>(null!)
-    const [navClass, setNavClass] = useState('')
+    const [navClass, setNavClass] = useState('nav-hidden')
     const router = useRouter()
 
 
