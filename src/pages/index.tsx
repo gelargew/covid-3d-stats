@@ -18,7 +18,7 @@ export default function Home({ jsonData, d }: InferGetStaticPropsType<typeof get
     return (
         <>
             <main>
-
+                <p><small>last updated: {lastUpdated}</small></p>
                 <section className="section-chart">
 
                     <Canvas>
