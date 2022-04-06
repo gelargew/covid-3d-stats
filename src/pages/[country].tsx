@@ -18,7 +18,7 @@ export default function Country({ data, countryInfo }: InferGetStaticPropsType<t
     return (
         <>
             <Head>
-                <title>{countryInfo.name}</title>
+                <title>{countryInfo.name} | Covid Stats</title>
             </Head>
             <main>
                 {
@@ -27,7 +27,7 @@ export default function Country({ data, countryInfo }: InferGetStaticPropsType<t
                         <p><small>last updated: {lastUpdated}</small></p>
                         <section className="section-chart">
 
-                            <Canvas>
+                            <Canvas >
                                 <ambientLight />
                                 <HistoricalCases data={data} />
                                 <Reflector />
@@ -46,9 +46,8 @@ export default function Country({ data, countryInfo }: InferGetStaticPropsType<t
                     </>
                 }
 
-                
+                <Info />
             </main>
-            <Info />
         </>
         
     )
