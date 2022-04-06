@@ -7,6 +7,7 @@ import { Canvas } from "@react-three/fiber";
 import HistoricalCases from "../components/HistoricalCases";
 import { Reflector } from "../components/Reflector";
 import Head from "next/head";
+import Info from "../components/Info";
 
 
 
@@ -47,6 +48,7 @@ export default function Country({ data, countryInfo }: InferGetStaticPropsType<t
 
                 
             </main>
+            <Info />
         </>
         
     )
