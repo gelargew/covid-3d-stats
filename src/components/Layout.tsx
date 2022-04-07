@@ -14,6 +14,9 @@ export default function Layout() {
 
     useEffect(() => {
         setNavClass('nav-hidden')
+        for (const el of countriesElements) {
+            el.style.display = 'flex'
+        }
     }, [router.asPath])
 
     const handleSearch = (e:React.KeyboardEvent<HTMLInputElement>) => {
