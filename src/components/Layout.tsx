@@ -14,6 +14,7 @@ export default function Layout() {
 
     useEffect(() => {
         setNavClass('nav-hidden')
+        const countriesElements = Array.from(ref.current.children)
         for (const el of countriesElements) {
             el.style.display = 'flex'
         }
