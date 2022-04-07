@@ -9,6 +9,7 @@ import { Reflector } from "../components/Reflector"
 import * as THREE from 'three'
 import '../styles/index.module.css'
 import HistoricalCases from "../components/HistoricalCases"
+import Info from "../components/Info"
 
 
 export default function Home({ jsonData, d }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -38,7 +39,7 @@ export default function Home({ jsonData, d }: InferGetStaticPropsType<typeof get
                     </div>
 
                 </section>
-                
+            <Info />
             </main>
         </>
         
